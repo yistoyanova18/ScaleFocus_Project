@@ -154,7 +154,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GetAll.cpp" />
+    <ClCompile Include="InsertAll.cpp" />
     <ClCompile Include="ScaleFocus_project.cpp" />
+    <ClCompile Include="UpdateAll.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
