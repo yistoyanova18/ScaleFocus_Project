@@ -49,16 +49,55 @@ void getAllUsers(nanodbc::connection conn)
 	}
 }
 
+vector<TEAM> getTeam(nanodbc::connection conn)
+{
+	vector<TEAM> teams;
+
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
+        SELECT *
+            FROM ScaleFocus_Project.dbo.[Team]
+    )"));
+
+	auto result = execute(statement);
+
+	while (result.next())
+	{
+		TEAM team;
+		team.id = result.get<int>("Id");
+		team.title = result.get<nanodbc::string>("Title", "");
+		team.dateOfCreation = result.get<nanodbc::string>("DateOfCreation");
+		team.idOfCreator = result.get<int>("IdCreator", 0);
+		team.dateOfLastChange = result.get<nanodbc::string>("DateLastChange");
+		team.idLastChange = result.get<int>("IdLastChange", 0);
+
+		teams.push_back(team);
+	}
+
+	return teams;
+}
+
+void getAllTeams(nanodbc::connection conn)
+{
+	vector<TEAM> teams = getTeam(conn);
+
+	for (size_t i = 0; i < teams.size(); i++)
+	{
+		teams[i].displayTeam();
+		cout << endl;
+	}
+}
+
 int main()
 {
 	try
 	{
-		//nanodbc::string connstr = NANODBC_TEXT("DRIVER={ODBC Driver 17 for SQL Server};Server=UNIVERSE\\SQLEXPESS;DATABASE=ScaleFocus_Project;Trusted_Connection=yes;"); // an ODBC connection string to your database
 		nanodbc::string connstr = NANODBC_TEXT("DRIVER={ODBC Driver 17 for SQL Server};Server=UNIVERSE\\SQLEXPRESS;DATABASE=ScaleFocus_Project;Trusted_Connection=yes;"); // an ODBC connection string to your database
 
 		nanodbc::connection conn(connstr);
 
-		getAllUsers(conn);
+		//getAllUsers(conn);
+		getAllTeams(conn);
 
 		return EXIT_SUCCESS;
 	}
