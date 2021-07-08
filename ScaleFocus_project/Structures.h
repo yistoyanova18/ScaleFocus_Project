@@ -83,7 +83,7 @@ struct TASK
 	int idOfAssignee = 0;
 	string title = "";
 	string description = "";
-	enum status { pending, inProgress, complete };
+	string taskStatus;
 	string dateOfCreation;
 	int idOfCreator = 0;
 	string dateOfLastChange;
@@ -103,7 +103,7 @@ struct TASK
 	}
 };
 
-struct WorkLog
+struct WORKLOG
 {
 	int id = 0;
 	int idOfTask = 0;

@@ -18,5 +18,8 @@
     <ClCompile Include="ScaleFocus_project.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GetAll.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
