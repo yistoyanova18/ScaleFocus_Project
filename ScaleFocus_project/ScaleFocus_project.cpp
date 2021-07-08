@@ -88,6 +88,46 @@ void getAllTeams(nanodbc::connection conn)
 	}
 }
 
+vector<PROJECT> getProject(nanodbc::connection conn)
+{
+	vector<PROJECT> projects;
+
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
+        SELECT *
+            FROM ScaleFocus_Project.dbo.[Project]
+    )"));
+
+	auto result = execute(statement);
+
+	while (result.next())
+	{
+		PROJECT project;
+		project.id = result.get<int>("Id");
+		project.title = result.get<nanodbc::string>("Title", "");
+		project.description = result.get<nanodbc::string>("Description", "");
+		project.dateOfCreation = result.get<nanodbc::string>("DateOfCreation");
+		project.idOfCreator = result.get<int>("IdCreator", 0);
+		project.dateOfLastChange = result.get<nanodbc::string>("DateLastChange");
+		project.idLastChange = result.get<int>("IdLastChange", 0);
+	
+		projects.push_back(project);
+	}
+
+	return projects;
+}
+
+void getAllProjects(nanodbc::connection conn)
+{
+	vector<PROJECT> projects = getProject(conn);
+
+	for (size_t i = 0; i < projects.size(); i++)
+	{
+		projects[i].displayProject();
+		cout << endl;
+	}
+}
+
 int main()
 {
 	try
@@ -97,7 +137,8 @@ int main()
 		nanodbc::connection conn(connstr);
 
 		//getAllUsers(conn);
-		getAllTeams(conn);
+		//getAllTeams(conn);
+		getAllProjects(conn);
 
 		return EXIT_SUCCESS;
 	}
