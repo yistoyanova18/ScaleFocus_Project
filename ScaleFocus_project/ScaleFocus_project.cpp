@@ -14,6 +14,8 @@ void getAllTasks(nanodbc::connection conn);
 void getAllWorkLogs(nanodbc::connection conn);
 void insertUser(nanodbc::connection conn);
 void updateUser(nanodbc::connection conn, const int& id);
+void insertTeam(nanodbc::connection conn);
+void insertProject(nanodbc::connection conn);
 
 string enterText()
 {
@@ -77,10 +79,12 @@ int main()
 		//getAllTasks(conn);
 		//getAllWorkLogs(conn);
 		//insertUser(conn);
+		//insertTeam(conn);
+		insertProject(conn);
 
-		cout << "Enter the user's id that you want to change: ";
+		/*cout << "Enter the user's id that you want to change: ";
 		id = enterInt();
-		updateUser(conn, id);
+		updateUser(conn, id);*/
 
 		return EXIT_SUCCESS;
 	}
