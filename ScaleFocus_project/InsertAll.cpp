@@ -103,3 +103,72 @@ void insertProject(nanodbc::connection conn)
 
 	execute(statement);
 }
+
+void insertTask(nanodbc::connection conn)
+{
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"(
+        INSERT INTO
+            ScaleFocus_Project.dbo.[Task]
+            (IdOfProject, IdOfAssignee, Title, Description, TaskStatus, DateOfCreation, IdOfCreator, DateLastChange, IdLastChange)
+            VALUES
+            (?, ?, ?, ?, ?, GETDATE(), ?, GETDATE(), ?)
+    )"));
+
+	cout << "Enter the id of the project that the task belongs to: ";
+	const int idOfProject = enterInt();
+	statement.bind(0, &idOfProject);
+
+	cout << "Enter the id of the user that this task has been assigned to: ";
+	const int idOfAssignee = enterInt();
+	statement.bind(1, &idOfAssignee);
+
+	cout << "Enter the task's title: ";
+	const string title = enterText();
+	statement.bind(2, title.c_str());
+
+
+	cout << "Enter the task's description: ";
+	const string description = enterText();
+	statement.bind(3, description.c_str());
+
+	cout << "Enter the task's status: ";
+	const string taskStatus = enterText();
+	statement.bind(4, taskStatus.c_str());
+
+	cout << "Enter the id of the creator: ";
+	const int idOfCreator = enterInt();
+	statement.bind(5, &idOfCreator);
+
+	cout << "Enter the id of the user that did the last change: ";
+	const int idLastChange = enterInt();
+	statement.bind(6, &idLastChange);
+
+	execute(statement);
+}
+
+void insertWorkLog(nanodbc::connection conn)
+{
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"(
+        INSERT INTO
+            ScaleFocus_Project.dbo.[WorkLog]
+            (IdTask, IdUser, Time, Date)
+            VALUES
+            (?, ?, ?, GETDATE())
+    )"));
+
+	cout << "Enter the id of the task that you are logging work for: ";
+	const string title = enterText();
+	statement.bind(0, title.c_str());
+
+	cout << "Enter the id of the user that is logging work: ";
+	const int idOfCreator = enterInt();
+	statement.bind(1, &idOfCreator);
+
+	cout << "Enter the number of hours spent working on the task for that day: ";
+	const int idLastChange = enterInt();
+	statement.bind(2, &idLastChange);
+
+	execute(statement);
+}

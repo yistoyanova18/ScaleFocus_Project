@@ -117,8 +117,6 @@ vector<PROJECT> getProject(nanodbc::connection conn)
 	return projects;
 }
 
-
-
 void getAllProjects(nanodbc::connection conn)
 {
 	vector<PROJECT> projects = getProject(conn);
