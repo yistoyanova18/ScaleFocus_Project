@@ -8,6 +8,7 @@
 using namespace std;
 
 string enterText();
+
 int enterInt();
 
 void insertUser(nanodbc::connection conn)
@@ -155,20 +156,24 @@ void insertWorkLog(nanodbc::connection conn)
             ScaleFocus_Project.dbo.[WorkLog]
             (IdTask, IdUser, Time, Date)
             VALUES
-            (?, ?, ?, GETDATE())
+            (?, ?, ?, ?)
     )"));
 
 	cout << "Enter the id of the task that you are logging work for: ";
-	const string title = enterText();
-	statement.bind(0, title.c_str());
+	const int idTask = enterInt();
+	statement.bind(0, &idTask);
 
 	cout << "Enter the id of the user that is logging work: ";
-	const int idOfCreator = enterInt();
-	statement.bind(1, &idOfCreator);
+	const int idUser = enterInt();
+	statement.bind(1, &idUser);
 
 	cout << "Enter the number of hours spent working on the task for that day: ";
-	const int idLastChange = enterInt();
-	statement.bind(2, &idLastChange);
+	const int time = enterInt();
+	statement.bind(2, &time);
+
+	cout << "Enter the date when the time was spent on the task: ";
+	const string date = enterText();
+	statement.bind(3, date.c_str());
 
 	execute(statement);
 }

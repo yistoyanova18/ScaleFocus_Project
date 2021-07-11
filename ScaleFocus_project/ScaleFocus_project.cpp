@@ -13,11 +13,15 @@ void getAllProjects(nanodbc::connection conn);
 void getAllTasks(nanodbc::connection conn);
 void getAllWorkLogs(nanodbc::connection conn);
 void insertUser(nanodbc::connection conn);
-void updateUser(nanodbc::connection conn, const int& id);
 void insertTeam(nanodbc::connection conn);
 void insertProject(nanodbc::connection conn);
 void insertTask(nanodbc::connection conn);
 void insertWorkLog(nanodbc::connection conn);
+void updateUser(nanodbc::connection conn, const int& id);
+void updateTeam(nanodbc::connection conn, const int& id);//ne e testvano
+void updateProject(nanodbc::connection conn, const int& id);//ne e testvano
+void updateTask(nanodbc::connection conn, const int& id);//ne e testvano
+void updateWorkLog(nanodbc::connection conn, const int& id);//ne e testvano
 
 string enterText()
 {
