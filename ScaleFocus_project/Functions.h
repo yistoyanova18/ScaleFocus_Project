@@ -28,6 +28,7 @@ void displayMenu();
 void displayGetAllMenu();
 bool getAllMenu(nanodbc::connection conn);
 bool adminMenu(nanodbc::connection conn);
+bool userMenu(nanodbc::connection conn);
 
 //void getBackToMenu(nanodbc::connection conn)
 //{

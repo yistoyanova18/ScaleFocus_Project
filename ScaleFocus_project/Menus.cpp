@@ -197,7 +197,7 @@ bool insertAllUserMenu(nanodbc::connection conn)
 {
 	int choice;
 
-	displayInsertAllMenu();
+	displayInsertAllUserMenu();
 
 	cout << "Enter an option from the menu: ";
 	cin >> choice;
@@ -289,6 +289,49 @@ bool updateAllMenu(nanodbc::connection conn)
 	return true;
 }
 
+bool updateAllUserMenu(nanodbc::connection conn)
+{
+	int choice;
+	int id;
+
+	displayUpdateAllUserMenu();
+
+	cout << "Enter an option from the menu: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1: {
+		system("cls");
+		cout << "Enter the user's id that you want to change: ";
+		id = enterInt();
+		cout << endl;
+		updateProject(conn, id);
+		break;
+	}
+
+	case 2: {
+		system("cls");
+		cout << "Enter the user's id that you want to change: ";
+		id = enterInt();
+		cout << endl;
+		updateTask(conn, id);
+		break;
+	}
+
+	case 3: {
+		system("cls");
+		id = enterInt();
+		cout << endl;
+		updateWorkLog(conn, id);
+		break;
+	}
+	default: cout << "Try again! " << endl;
+	}
+
+	return true;
+}
+
 void deleteAllMenu(nanodbc::connection con)
 {
 	cout << "We are very sorry but this functionality is currently unavailable! :(" << endl;
@@ -361,7 +404,7 @@ bool userMenu(nanodbc::connection conn)
 
 	case 3: {
 		system("cls");
-		updateAllMenu(conn);
+		updateAllUserMenu(conn);
 		break;
 	}
 

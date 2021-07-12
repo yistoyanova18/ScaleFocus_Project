@@ -62,7 +62,7 @@ void loginMenu(nanodbc::connection conn, USER& user)
 		}
 		else
 		{
-			cout << "enter user menu";
+			cout << userMenu(conn);
 		}
 	}
 	else
