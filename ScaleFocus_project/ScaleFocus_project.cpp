@@ -41,7 +41,7 @@ int enterInt()
 	return stoi(num);
 }
 
-void loginMenu(nanodbc::connection conn)
+void loginMenu(nanodbc::connection conn, USER& user)
 {
 	string username, pass;
 
@@ -50,7 +50,26 @@ void loginMenu(nanodbc::connection conn)
 	getline(cin, username);
 	cout << "Password: ";
 	getline(cin, pass);
-	login(conn, username, pass);
+
+	user = login(conn, username, pass);
+
+	if (user.id > 0)
+	{
+
+		if (username == "admin" and pass == "adminpass")
+		{
+			cout << adminMenu(conn);
+		}
+		else
+		{
+			cout << "enter user menu";
+		}
+	}
+	else
+	{
+		cout << endl;
+		cout << "Incorrect username or password! Try again!" << endl;
+	}
 }
 
 int main()
@@ -63,8 +82,9 @@ int main()
 
 		bool queryResult = false;
 		int id;
+		USER currentUser{};
 
-		loginMenu(conn);
+		loginMenu(conn, currentUser);
 
 		/*cout << "Enter the id of the user you want to delete: ";
 		id = enterInt();

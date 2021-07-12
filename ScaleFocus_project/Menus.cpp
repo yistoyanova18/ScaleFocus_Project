@@ -10,8 +10,9 @@ using namespace std;
 
 int enterInt();
 
-void login(nanodbc::connection conn, string username, string pass)
+USER login(nanodbc::connection conn, string username, string password)
 {
+	USER user{};
     nanodbc::statement statement(conn);
     nanodbc::prepare(statement, NANODBC_TEXT(R"(
         SELECT *
@@ -21,26 +22,24 @@ void login(nanodbc::connection conn, string username, string pass)
 
     statement.bind(0, username.c_str());
 
-    statement.bind(1, pass.c_str());
+    statement.bind(1, password.c_str());
 
     nanodbc::result result = nanodbc::execute(statement);
+	if (result.next())
+	{
+		user.id = result.get<int>("Id");
+		user.username = result.get<nanodbc::string>("Username", "");
+		user.password = result.get<nanodbc::string>("Password", "");
+		user.firstName = result.get<nanodbc::string>("FirstName", "");
+		user.lastName = result.get<nanodbc::string>("LastName", "");
+		user.dateOfCreation = result.get<nanodbc::string>("DateOfCreation", "");
+		user.idOfCreator = result.get<int>("IdOfCreator", 0);
+		user.dateOfLastChange = result.get<nanodbc::string>("DateLastChange", "");
+		user.idLastChange = result.get<int>("IdLastChange", 0);
+		user.isAdmin = result.get<int>("isAdmin");
+	}
 
-    if (result.next()) 
-    { 
-        if(username == "admin" and pass == "adminpass")
-        {
-			cout<<adminMenu(conn);
-        }
-        else
-        {
-            cout << "enter user menu";
-        }
-    }
-    else 
-    {
-        cout << endl;
-        cout << "Incorrect username or password! Try again!" << endl;
-    }
+	return user;
 }
 
 void displayMenu()
@@ -75,6 +74,14 @@ void displayInsertAllMenu()
 	cout << endl;
 }
 
+void displayInsertAllUserMenu()
+{
+	cout << "1) Insert a project" << endl;
+	cout << "2) Insert a task" << endl;
+	cout << "3) Insert a work log" << endl;
+	cout << endl;
+}
+
 void displayUpdateAllMenu()
 {
 	cout << "1) Update a user" << endl;
@@ -82,6 +89,14 @@ void displayUpdateAllMenu()
 	cout << "3) Update a project" << endl;
 	cout << "4) Update a task" << endl;
 	cout << "5) Update a work log" << endl;
+	cout << endl;
+}
+
+void displayUpdateAllUserMenu()
+{
+	cout << "1) Update a project" << endl;
+	cout << "2) Update a task" << endl;
+	cout << "3) Update a work log" << endl;
 	cout << endl;
 }
 
@@ -178,6 +193,41 @@ bool insertAllMenu(nanodbc::connection conn)
 	return true;
 }
 
+bool insertAllUserMenu(nanodbc::connection conn)
+{
+	int choice;
+
+	displayInsertAllMenu();
+
+	cout << "Enter an option from the menu: ";
+	cin >> choice;
+	cout << endl;
+
+	switch (choice)
+	{
+	case 1: {
+		system("cls");
+		insertProject(conn);
+		break;
+	}
+
+	case 2: {
+		system("cls");
+		insertTask(conn);
+		break;
+	}
+
+	case 3: {
+		system("cls");
+		insertWorkLog(conn);
+		break;
+	}
+	default: cout << "Try again! " << endl;
+	}
+
+	return true;
+}
+
 bool updateAllMenu(nanodbc::connection conn)
 {
 	int choice;
@@ -264,6 +314,48 @@ bool adminMenu(nanodbc::connection conn)
 	case 2: {
 		system("cls");
 		insertAllMenu(conn);
+		break;
+	}
+
+	case 3: {
+		system("cls");
+		updateAllMenu(conn);
+		break;
+	}
+
+	case 4: {
+		system("cls");
+		deleteAllMenu(conn);
+		break;
+	}
+
+	case 5: return false;
+	default: cout << "Try again! " << endl;
+	}
+
+	return true;
+}
+
+bool userMenu(nanodbc::connection conn)
+{
+	int choice;
+
+	displayMenu();
+
+	cout << "Enter an option from the menu: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1: {
+		system("cls");
+		getAllMenu(conn);
+		break;
+	}
+
+	case 2: {
+		system("cls");
+		insertAllUserMenu(conn);
 		break;
 	}
 

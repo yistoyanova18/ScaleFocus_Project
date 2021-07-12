@@ -23,7 +23,7 @@ void updateTeam(nanodbc::connection conn, const int& id);//ne e testvano
 void updateProject(nanodbc::connection conn, const int& id);//ne e testvano
 void updateTask(nanodbc::connection conn, const int& id);//ne e testvano
 void updateWorkLog(nanodbc::connection conn, const int& id);//ne e testvano
-void login(nanodbc::connection conn, string username, string pass);
+USER login(nanodbc::connection conn, string username, string pass);
 void displayMenu();
 void displayGetAllMenu();
 bool getAllMenu(nanodbc::connection conn);
