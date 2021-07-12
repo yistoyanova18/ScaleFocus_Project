@@ -4,40 +4,9 @@
 #include <exception>
 #include <vector>
 #include "Structures.h"
+#include "Functions.h"
 
 using namespace std;
-
-void getAllUsers(nanodbc::connection conn);
-void getAllTeams(nanodbc::connection conn);
-void getAllProjects(nanodbc::connection conn);
-void getAllTasks(nanodbc::connection conn);
-void getAllWorkLogs(nanodbc::connection conn);
-void insertUser(nanodbc::connection conn);
-void insertTeam(nanodbc::connection conn);
-void insertProject(nanodbc::connection conn);
-void insertTask(nanodbc::connection conn);
-void insertWorkLog(nanodbc::connection conn);
-void updateUser(nanodbc::connection conn, const int& id);
-void updateTeam(nanodbc::connection conn, const int& id);//ne e testvano
-void updateProject(nanodbc::connection conn, const int& id);//ne e testvano
-void updateTask(nanodbc::connection conn, const int& id);//ne e testvano
-void updateWorkLog(nanodbc::connection conn, const int& id);//ne e testvano
-
-string enterText()
-{
-	string text;
-	getline(cin, text);
-
-	return text;
-}
-
-int enterInt()
-{
-	string num;
-	getline(cin, num);
-
-	return stoi(num);
-}
 
 //bool deleteUserById(nanodbc::connection conn, const int& id)
 //{
@@ -56,6 +25,34 @@ int enterInt()
 //
 //}
 
+string enterText()
+{
+	string text;
+	//getline(cin, text);
+	cin >> text;
+	return text;
+}
+
+int enterInt()
+{
+	string num;
+	//getline(cin, num);
+	cin >> num;
+	return stoi(num);
+}
+
+void loginMenu(nanodbc::connection conn)
+{
+	string username, pass;
+
+	cout << "Enter your username and password please" << endl;
+	cout << "Username: ";
+	getline(cin, username);
+	cout << "Password: ";
+	getline(cin, pass);
+	login(conn, username, pass);
+}
+
 int main()
 {
 	try
@@ -66,6 +63,8 @@ int main()
 
 		bool queryResult = false;
 		int id;
+
+		loginMenu(conn);
 
 		/*cout << "Enter the id of the user you want to delete: ";
 		id = enterInt();

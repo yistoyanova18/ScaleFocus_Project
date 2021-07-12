@@ -27,8 +27,13 @@
     <ClCompile Include="UpdateAll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Authentication.cpp">
+    <ClCompile Include="Menus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

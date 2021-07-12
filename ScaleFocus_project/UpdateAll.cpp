@@ -4,6 +4,7 @@
 #include <exception>
 #include <vector>
 #include "Structures.h"
+#include "Functions.h"
 
 using namespace std;
 
