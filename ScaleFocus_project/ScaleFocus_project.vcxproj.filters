@@ -27,5 +27,8 @@
     <ClCompile Include="UpdateAll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Authentication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

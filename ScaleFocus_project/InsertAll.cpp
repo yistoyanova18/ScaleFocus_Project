@@ -171,7 +171,7 @@ void insertWorkLog(nanodbc::connection conn)
 	const int time = enterInt();
 	statement.bind(2, &time);
 
-	cout << "Enter the date when the time was spent on the task: ";
+	cout << "Enter the date when the time was spent on the task (year-month-day): ";
 	const string date = enterText();
 	statement.bind(3, date.c_str());
 

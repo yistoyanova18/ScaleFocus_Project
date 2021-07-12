@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Authentication.cpp" />
     <ClCompile Include="GetAll.cpp" />
     <ClCompile Include="InsertAll.cpp" />
     <ClCompile Include="ScaleFocus_project.cpp" />
