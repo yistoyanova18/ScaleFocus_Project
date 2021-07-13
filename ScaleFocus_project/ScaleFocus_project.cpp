@@ -72,6 +72,25 @@ void loginMenu(nanodbc::connection conn, USER& user)
 	}
 }
 
+void getBackToMenu(nanodbc::connection conn)
+{
+	int choice;
+	cout << endl;
+	cout << "Type '0' to return back to the menu\n";
+enter:
+	cin >> choice;
+
+	if (choice == 0)
+	{
+		system("cls");
+	}
+	else
+	{
+		cout << "Invalid entered value! Plase enter again: ";
+		goto enter;
+	}
+}
+
 int main()
 {
 	try
@@ -85,33 +104,6 @@ int main()
 		USER currentUser{};
 
 		loginMenu(conn, currentUser);
-
-		/*cout << "Enter the id of the user you want to delete: ";
-		id = enterInt();
-		queryResult = deleteUserById(conn, id);
-
-		if (queryResult)
-		{
-			cout << endl << "The lake with id " << id << " was deleted successfully!" << endl;
-		}
-		else {
-			cout << endl << "The lake with id " << id << " was not found!" << endl;
-		}*/
-
-		//getAllUsers(conn);
-		//getAllTeams(conn);
-		//getAllProjects(conn);
-		//getAllTasks(conn);
-		//getAllWorkLogs(conn);
-		//insertUser(conn);
-		//insertTeam(conn);
-		//insertProject(conn);
-		//insertTask(conn);
-		//insertWorkLog(conn);
-
-		/*cout << "Enter the user's id that you want to change: ";
-		id = enterInt();
-		updateUser(conn, id);*/
 
 		return EXIT_SUCCESS;
 	}

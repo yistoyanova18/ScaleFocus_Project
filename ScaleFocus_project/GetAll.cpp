@@ -48,6 +48,8 @@ void getAllUsers(nanodbc::connection conn)
 	{
 		users[i].displayUser();
 	}
+
+	getBackToMenu(conn);
 }
 
 vector<TEAM> getTeam(nanodbc::connection conn)
@@ -87,6 +89,8 @@ void getAllTeams(nanodbc::connection conn)
 		teams[i].displayTeam();
 		cout << endl;
 	}
+
+	getBackToMenu(conn);
 }
 
 vector<PROJECT> getProject(nanodbc::connection conn)
@@ -127,6 +131,8 @@ void getAllProjects(nanodbc::connection conn)
 		projects[i].displayProject();
 		cout << endl;
 	}
+
+	getBackToMenu(conn);
 }
 
 vector<TASK> getTask(nanodbc::connection conn)
@@ -170,6 +176,8 @@ void getAllTasks(nanodbc::connection conn)
 		tasks[i].displayTask();
 		cout << endl;
 	}
+
+	getBackToMenu(conn);
 }
 
 vector<WORKLOG> getWorkLog(nanodbc::connection conn)
@@ -208,4 +216,6 @@ void getAllWorkLogs(nanodbc::connection conn)
 		workLogs[i].displayWorkLog();
 		cout << endl;
 	}
+
+	getBackToMenu(conn);
 }

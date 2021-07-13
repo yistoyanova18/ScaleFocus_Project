@@ -42,6 +42,7 @@ USER login(nanodbc::connection conn, string username, string password)
 	return user;
 }
 
+//display menus
 void displayMenu()
 {
 	cout << endl;
@@ -100,6 +101,7 @@ void displayUpdateAllUserMenu()
 	cout << endl;
 }
 
+//function menus
 bool getAllMenu(nanodbc::connection conn)
 {
 	int choice;
@@ -337,6 +339,7 @@ void deleteAllMenu(nanodbc::connection con)
 	cout << "We are very sorry but this functionality is currently unavailable! :(" << endl;
 }
 
+//main menus
 bool adminMenu(nanodbc::connection conn)
 {
 	int choice;

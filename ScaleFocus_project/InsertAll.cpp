@@ -48,6 +48,8 @@ void insertUser(nanodbc::connection conn)
 	statement.bind(5, &idLastChange);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void insertTeam(nanodbc::connection conn)
@@ -74,6 +76,8 @@ void insertTeam(nanodbc::connection conn)
 	statement.bind(2, &idLastChange);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void insertProject(nanodbc::connection conn)
@@ -104,6 +108,8 @@ void insertProject(nanodbc::connection conn)
 	statement.bind(3, &idLastChange);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void insertTask(nanodbc::connection conn)
@@ -147,6 +153,8 @@ void insertTask(nanodbc::connection conn)
 	statement.bind(6, &idLastChange);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void insertWorkLog(nanodbc::connection conn)
@@ -177,4 +185,6 @@ void insertWorkLog(nanodbc::connection conn)
 	statement.bind(3, date.c_str());
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }

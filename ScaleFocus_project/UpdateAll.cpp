@@ -50,6 +50,8 @@ void updateUser(nanodbc::connection conn, const int& id)
 	statement.bind(5, &id);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void updateTeam(nanodbc::connection conn, const int& id)
@@ -75,6 +77,8 @@ void updateTeam(nanodbc::connection conn, const int& id)
 	statement.bind(2, &id);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void updateProject(nanodbc::connection conn, const int& id)
@@ -105,6 +109,8 @@ void updateProject(nanodbc::connection conn, const int& id)
 	statement.bind(3, &id);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void updateTask(nanodbc::connection conn, const int& id)
@@ -145,6 +151,8 @@ void updateTask(nanodbc::connection conn, const int& id)
 	statement.bind(5, &id);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void updateWorkLog(nanodbc::connection conn, const int& id)
@@ -179,4 +187,6 @@ void updateWorkLog(nanodbc::connection conn, const int& id)
 	statement.bind(4, &id);
 
 	execute(statement);
+
+	getBackToMenu(conn);
 }
