@@ -5,6 +5,10 @@
 
 > The project management sysytem manages the operations of an IT company. It brings visibility to an organization of multiple teams, working on multitle projects.
 
+### <img src="https://cdn.icon-icons.com/icons2/567/PNG/512/clouddown_icon-icons.com_54405.png" width="30">  Installation
+
+Download the project from [github](https://github.com/yistoyanova18/ScaleFocus_Project) by pressing the green clone button.
+
 <h3 align="left">Languages and Tools:</h3>
 <p align="left">
   <img src="https://1000logos.net/wp-content/uploads/2018/11/GitHub-logo.png" alt="github" width="50" height="45"/>
