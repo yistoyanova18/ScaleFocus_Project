@@ -52,4 +52,5 @@ void getBackToMenu(nanodbc::connection conn);
 
 PROJECT getProjectById(nanodbc::connection conn, int id);
 TASK getTaskById(nanodbc::connection conn, int id);
+WORKLOG getWorkLogById(nanodbc::connection conn, int id);
 

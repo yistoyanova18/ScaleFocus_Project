@@ -24,7 +24,8 @@ PROJECT getProjectById(nanodbc::connection conn, int id)
 	PROJECT project;
 
 	if (!result.next()); //cout << "There is no such id" << endl;
-	else {
+	else 
+	{
 		project.id = result.get<int>("Id");
 		project.title = result.get<nanodbc::string>("Title", "");
 		project.description = result.get<nanodbc::string>("Description", "");
@@ -53,7 +54,8 @@ TASK getTaskById(nanodbc::connection conn, int id)
 	TASK task;
 
 	if (!result.next()); //cout << "There is no such id" << endl;
-	else {
+	else 
+	{
 		task.id = result.get<int>("Id");
 		task.idOfProject = result.get<int>("IdOfProject");
 		task.idOfAssignee = result.get<int>("IdOfAssignee");
@@ -67,4 +69,32 @@ TASK getTaskById(nanodbc::connection conn, int id)
 	}
 
 	return task;
+}
+
+WORKLOG getWorkLogById(nanodbc::connection conn, int id)
+{
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
+        SELECT *
+            FROM ScaleFocus_Project.dbo.[WorkLog]
+		WHERE Id = ?
+    )"));
+
+	statement.bind(0, &id);
+
+	auto result = execute(statement);
+
+	WORKLOG workLog;
+
+	if (!result.next()); //cout << "There is no such id" << endl;
+	else 
+	{
+		workLog.id = result.get<int>("Id");
+		workLog.idOfTask = result.get<int>("IdTask");
+		workLog.idOfUser = result.get<int>("IdUser");
+		workLog.date = result.get<nanodbc::string>("Date", "");
+		workLog.time = result.get<nanodbc::string>("Time", "");
+	}
+
+	return workLog;
 }
