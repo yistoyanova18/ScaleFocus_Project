@@ -253,7 +253,7 @@ bool updateAllMenu(nanodbc::connection conn)
 
 	case 2: {
 		system("cls");
-		cout << "Enter the user's id that you want to change: ";
+		cout << "Enter the team's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateTeam(conn, id);
@@ -262,7 +262,7 @@ bool updateAllMenu(nanodbc::connection conn)
 
 	case 3: {
 		system("cls");
-		cout << "Enter the user's id that you want to change: ";
+		cout << "Enter the project's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateProject(conn, id);
@@ -271,7 +271,7 @@ bool updateAllMenu(nanodbc::connection conn)
 
 	case 4: {
 		system("cls");
-		cout << "Enter the user's id that you want to change: ";
+		cout << "Enter the task's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateTask(conn, id);
@@ -280,6 +280,7 @@ bool updateAllMenu(nanodbc::connection conn)
 
 	case 5: {
 		system("cls");
+		cout << "Enter the work log's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateWorkLog(conn, id);
@@ -305,7 +306,7 @@ bool updateAllUserMenu(nanodbc::connection conn)
 	{
 	case 1: {
 		system("cls");
-		cout << "Enter the user's id that you want to change: ";
+		cout << "Enter the project's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateProject(conn, id);
@@ -314,7 +315,7 @@ bool updateAllUserMenu(nanodbc::connection conn)
 
 	case 2: {
 		system("cls");
-		cout << "Enter the user's id that you want to change: ";
+		cout << "Enter the task's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateTask(conn, id);
@@ -323,6 +324,7 @@ bool updateAllUserMenu(nanodbc::connection conn)
 
 	case 3: {
 		system("cls");
+		cout << "Enter the work log's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
 		updateWorkLog(conn, id);
@@ -354,24 +356,28 @@ bool adminMenu(nanodbc::connection conn)
 	case 1: {
 		system("cls");
 		getAllMenu(conn);
+		adminMenu(conn);
 		break;
 	}
 
 	case 2: {
 		system("cls");
 		insertAllMenu(conn);
+		adminMenu(conn);
 		break;
 	}
 
 	case 3: {
 		system("cls");
 		updateAllMenu(conn);
+		adminMenu(conn);
 		break;
 	}
 
 	case 4: {
 		system("cls");
 		deleteAllMenu(conn);
+		adminMenu(conn);
 		break;
 	}
 
@@ -396,24 +402,28 @@ bool userMenu(nanodbc::connection conn)
 	case 1: {
 		system("cls");
 		getAllMenu(conn);
+		userMenu(conn);
 		break;
 	}
 
 	case 2: {
 		system("cls");
 		insertAllUserMenu(conn);
+		userMenu(conn);
 		break;
 	}
 
 	case 3: {
 		system("cls");
 		updateAllUserMenu(conn);
+		userMenu(conn);
 		break;
 	}
 
 	case 4: {
 		system("cls");
 		deleteAllMenu(conn);
+		userMenu(conn);
 		break;
 	}
 

@@ -44,12 +44,15 @@ int enterInt()
 void loginMenu(nanodbc::connection conn, USER& user)
 {
 	string username, pass;
-
+enter:
 	cout << "Enter your username and password please" << endl;
 	cout << "Username: ";
 	getline(cin, username);
 	cout << "Password: ";
 	getline(cin, pass);
+
+	/*username = "admin";
+	pass = "adminpass";*/
 
 	user = login(conn, username, pass);
 
@@ -58,17 +61,19 @@ void loginMenu(nanodbc::connection conn, USER& user)
 
 		if (username == "admin" and pass == "adminpass")
 		{
-			cout << adminMenu(conn);
+			adminMenu(conn);
 		}
 		else
 		{
-			cout << userMenu(conn);
+			userMenu(conn);
 		}
 	}
 	else
 	{
 		cout << endl;
 		cout << "Incorrect username or password! Try again!" << endl;
+		cout << endl;
+		loginMenu(conn, user);
 	}
 }
 
@@ -77,7 +82,6 @@ void getBackToMenu(nanodbc::connection conn)
 	int choice;
 	cout << endl;
 	cout << "Type '0' to return back to the menu\n";
-enter:
 	cin >> choice;
 
 	if (choice == 0)
@@ -86,8 +90,8 @@ enter:
 	}
 	else
 	{
-		cout << "Invalid entered value! Plase enter again: ";
-		goto enter;
+		cout << "Invalid entered value!" << endl;
+		getBackToMenu(conn);
 	}
 }
 
