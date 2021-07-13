@@ -59,11 +59,11 @@ void loginMenu(nanodbc::connection conn, USER& user)
 
 		if (username == "admin" and pass == "adminpass")
 		{
-			adminMenu(conn);
+			adminMenu(conn, user);
 		}
 		else
 		{
-			userMenu(conn);
+			userMenu(conn, user);
 		}
 	}
 	else
@@ -94,7 +94,7 @@ void getBackToMenu(nanodbc::connection conn)
 }
 
 int main()
-{
+{	
 	try
 	{
 		nanodbc::string connstr = NANODBC_TEXT("DRIVER={ODBC Driver 17 for SQL Server};Server=UNIVERSE\\SQLEXPRESS;DATABASE=ScaleFocus_Project;Trusted_Connection=yes;"); // an ODBC connection string to your database

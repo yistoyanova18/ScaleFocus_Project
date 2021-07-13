@@ -38,15 +38,17 @@ void displayInsertAllUserMenu();
 void displayUpdateAllMenu();
 void displayUpdateAllUserMenu();
 //function menus
-bool getAllMenu(nanodbc::connection conn);
-bool insertAllMenu(nanodbc::connection conn);
-bool insertAllUserMenu(nanodbc::connection conn);
-bool updateAllMenu(nanodbc::connection conn);
-bool updateAllUserMenu(nanodbc::connection conn);
-void deleteAllMenu(nanodbc::connection con);
+bool getAllMenu(nanodbc::connection conn, USER& user);
+bool insertAllMenu(nanodbc::connection conn, USER& user);
+bool insertAllUserMenu(nanodbc::connection conn, USER& user);
+bool updateAllMenu(nanodbc::connection conn, USER& user);
+bool updateAllUserMenu(nanodbc::connection conn, USER& user);
+void deleteAllMenu(nanodbc::connection conn);
 //main menus
-bool adminMenu(nanodbc::connection conn);
-bool userMenu(nanodbc::connection conn);
+bool adminMenu(nanodbc::connection conn, USER& user);
+bool userMenu(nanodbc::connection conn, USER& user);
 
 void getBackToMenu(nanodbc::connection conn);
+
+PROJECT getProjectById(nanodbc::connection conn, int id);
 

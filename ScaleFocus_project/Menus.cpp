@@ -10,6 +10,35 @@ using namespace std;
 
 int enterInt();
 
+PROJECT getProjectById(nanodbc::connection conn, int id)
+{
+	nanodbc::statement statement(conn);
+	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
+        SELECT *
+            FROM ScaleFocus_Project.dbo.[Project]
+		WHERE Id = ?
+    )"));
+
+	statement.bind(0, &id);
+
+	auto result = execute(statement);
+
+	PROJECT project;
+
+	if (!result.next()); //cout << "There is no such id" << endl;
+	else {
+		project.id = result.get<int>("Id");
+		project.title = result.get<nanodbc::string>("Title", "");
+		project.description = result.get<nanodbc::string>("Description", "");
+		project.dateOfCreation = result.get<nanodbc::string>("DateOfCreation");
+		project.idOfCreator = result.get<int>("IdCreator", 0);
+		project.dateOfLastChange = result.get<nanodbc::string>("DateLastChange");
+		project.idLastChange = result.get<int>("IdLastChange", 0);
+	}
+
+	return project;
+}
+
 USER login(nanodbc::connection conn, string username, string password)
 {
 	USER user{};
@@ -125,7 +154,7 @@ void goodbyemessage()
 }
 
 //function menus
-bool getAllMenu(nanodbc::connection conn)
+bool getAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
@@ -171,7 +200,7 @@ bool getAllMenu(nanodbc::connection conn)
 	return true;
 }
 
-bool insertAllMenu(nanodbc::connection conn)
+bool insertAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
@@ -218,7 +247,7 @@ bool insertAllMenu(nanodbc::connection conn)
 	return true;
 }
 
-bool insertAllUserMenu(nanodbc::connection conn)
+bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
@@ -253,7 +282,7 @@ bool insertAllUserMenu(nanodbc::connection conn)
 	return true;
 }
 
-bool updateAllMenu(nanodbc::connection conn)
+bool updateAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 	int id;
@@ -315,7 +344,7 @@ bool updateAllMenu(nanodbc::connection conn)
 	return true;
 }
 
-bool updateAllUserMenu(nanodbc::connection conn)
+bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 	int id;
@@ -332,7 +361,19 @@ bool updateAllUserMenu(nanodbc::connection conn)
 		cout << "Enter the project's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
-		updateProject(conn, id);
+
+		PROJECT project = getProjectById(conn, id);
+
+		if (user.id == project.idOfCreator)
+		{
+
+			updateProject(conn, id);
+		}
+		else
+		{
+			cout << "Sorry, you can't change a project that you didn't create :(" << endl;
+		}
+		
 		break;
 	}
 
@@ -359,13 +400,13 @@ bool updateAllUserMenu(nanodbc::connection conn)
 	return true;
 }
 
-void deleteAllMenu(nanodbc::connection con)
+void deleteAllMenu(nanodbc::connection conn)
 {
 	cout << "We are very sorry but this functionality is currently unavailable! :(" << endl;
 }
 
 //main menus
-bool adminMenu(nanodbc::connection conn)
+bool adminMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
@@ -378,29 +419,29 @@ bool adminMenu(nanodbc::connection conn)
 	{
 	case 1: {
 		system("cls");
-		getAllMenu(conn);
-		adminMenu(conn);
+		getAllMenu(conn, user);
+		adminMenu(conn, user);
 		break;
 	}
 
 	case 2: {
 		system("cls");
-		insertAllMenu(conn);
-		adminMenu(conn);
+		insertAllMenu(conn, user);
+		adminMenu(conn, user);
 		break;
 	}
 
 	case 3: {
 		system("cls");
-		updateAllMenu(conn);
-		adminMenu(conn);
+		updateAllMenu(conn, user);
+		adminMenu(conn, user);
 		break;
 	}
 
 	case 4: {
 		system("cls");
 		deleteAllMenu(conn);
-		adminMenu(conn);
+		adminMenu(conn, user);
 		break;
 	}
 
@@ -411,7 +452,7 @@ bool adminMenu(nanodbc::connection conn)
 	return true;
 }
 
-bool userMenu(nanodbc::connection conn)
+bool userMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
@@ -424,29 +465,29 @@ bool userMenu(nanodbc::connection conn)
 	{
 	case 1: {
 		system("cls");
-		getAllMenu(conn);
-		userMenu(conn);
+		getAllMenu(conn, user);
+		userMenu(conn, user);
 		break;
 	}
 
 	case 2: {
 		system("cls");
-		insertAllUserMenu(conn);
-		userMenu(conn);
+		insertAllUserMenu(conn, user);
+		userMenu(conn, user);
 		break;
 	}
 
 	case 3: {
 		system("cls");
-		updateAllUserMenu(conn);
-		userMenu(conn);
+		updateAllUserMenu(conn, user);
+		userMenu(conn, user);
 		break;
 	}
 
 	case 4: {
 		system("cls");
 		deleteAllMenu(conn);
-		userMenu(conn);
+		userMenu(conn, user);
 		break;
 	}
 
