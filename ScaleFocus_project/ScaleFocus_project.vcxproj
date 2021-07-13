@@ -153,6 +153,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GetForUser.cpp" />
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="GetAll.cpp" />
     <ClCompile Include="InsertAll.cpp" />

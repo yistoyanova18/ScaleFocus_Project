@@ -10,35 +10,6 @@ using namespace std;
 
 int enterInt();
 
-PROJECT getProjectById(nanodbc::connection conn, int id)
-{
-	nanodbc::statement statement(conn);
-	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
-        SELECT *
-            FROM ScaleFocus_Project.dbo.[Project]
-		WHERE Id = ?
-    )"));
-
-	statement.bind(0, &id);
-
-	auto result = execute(statement);
-
-	PROJECT project;
-
-	if (!result.next()); //cout << "There is no such id" << endl;
-	else {
-		project.id = result.get<int>("Id");
-		project.title = result.get<nanodbc::string>("Title", "");
-		project.description = result.get<nanodbc::string>("Description", "");
-		project.dateOfCreation = result.get<nanodbc::string>("DateOfCreation");
-		project.idOfCreator = result.get<int>("IdCreator", 0);
-		project.dateOfLastChange = result.get<nanodbc::string>("DateLastChange");
-		project.idLastChange = result.get<int>("IdLastChange", 0);
-	}
-
-	return project;
-}
-
 USER login(nanodbc::connection conn, string username, string password)
 {
 	USER user{};
@@ -382,7 +353,17 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 		cout << "Enter the task's id that you want to change: ";
 		id = enterInt();
 		cout << endl;
-		updateTask(conn, id);
+
+		TASK task = getTaskById(conn, id);
+		if (user.id == task.idOfCreator)
+		{
+
+			updateTask(conn, id);
+		}
+		else
+		{
+			cout << "Sorry, you can't change a task that you didn't create :(" << endl;
+		}
 		break;
 	}
 

@@ -51,4 +51,5 @@ bool userMenu(nanodbc::connection conn, USER& user);
 void getBackToMenu(nanodbc::connection conn);
 
 PROJECT getProjectById(nanodbc::connection conn, int id);
+TASK getTaskById(nanodbc::connection conn, int id);
 
