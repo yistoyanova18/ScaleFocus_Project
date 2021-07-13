@@ -46,59 +46,82 @@ USER login(nanodbc::connection conn, string username, string password)
 void displayMenu()
 {
 	cout << endl;
-	cout << "Welcome to the project management application!" << endl;
-	cout << "1) List all" << endl;
-	cout << "2) Insert" << endl;
-	cout << "3) Update" << endl;
-	cout << "4) Delete" << endl;
-	cout << "5) Quit" << endl;
+	cout << " Welcome to the project management application!" << endl;
+	cout << endl;
+	cout << "             1) List all" << endl;
+	cout << "             2) Insert" << endl;
+	cout << "             3) Update" << endl;
+	cout << "             4) Delete" << endl;
+	cout << "             5) Quit" << endl;
+	cout << " +___________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayGetAllMenu()
 {
-	cout << "1) List all users" << endl;
-	cout << "2) List all teams" << endl;
-	cout << "3) List all projects" << endl;
-	cout << "4) List all tasks" << endl;
-	cout << "5) List all work logs" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "         1) List all users" << endl;
+	cout << "         2) List all teams" << endl;
+	cout << "         3) List all projects" << endl;
+	cout << "         4) List all tasks" << endl;
+	cout << "         5) List all work logs" << endl;
+	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayInsertAllMenu()
 {
-	cout << "1) Insert a user" << endl;
-	cout << "2) Insert a team" << endl;
-	cout << "3) Insert a project" << endl;
-	cout << "4) Insert a task" << endl;
-	cout << "5) Insert a work log" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Insert a user" << endl;
+	cout << "           2) Insert a team" << endl;
+	cout << "           3) Insert a project" << endl;
+	cout << "           4) Insert a task" << endl;
+	cout << "           5) Insert a work log" << endl;
+	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayInsertAllUserMenu()
 {
-	cout << "1) Insert a project" << endl;
-	cout << "2) Insert a task" << endl;
-	cout << "3) Insert a work log" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Insert a project" << endl;
+	cout << "           2) Insert a task" << endl;
+	cout << "           3) Insert a work log" << endl;
+	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayUpdateAllMenu()
 {
-	cout << "1) Update a user" << endl;
-	cout << "2) Update a team" << endl;
-	cout << "3) Update a project" << endl;
-	cout << "4) Update a task" << endl;
-	cout << "5) Update a work log" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Update a user" << endl;
+	cout << "           2) Update a team" << endl;
+	cout << "           3) Update a project" << endl;
+	cout << "           4) Update a task" << endl;
+	cout << "           5) Update a work log" << endl;
+	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayUpdateAllUserMenu()
 {
-	cout << "1) Update a project" << endl;
-	cout << "2) Update a task" << endl;
-	cout << "3) Update a work log" << endl;
+	cout << " +_________________________________________+" << endl;
 	cout << endl;
+	cout << "           1) Update a project" << endl;
+	cout << "           2) Update a task" << endl;
+	cout << "           3) Update a work log" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+}
+
+void goodbyemessage()
+{
+	cout << endl;
+	cout << "Goodbye! See you soon!" << endl;
 }
 
 //function menus
@@ -381,7 +404,7 @@ bool adminMenu(nanodbc::connection conn)
 		break;
 	}
 
-	case 5: return false;
+	case 5: goodbyemessage();  return false;
 	default: cout << "Try again! " << endl;
 	}
 
@@ -427,7 +450,7 @@ bool userMenu(nanodbc::connection conn)
 		break;
 	}
 
-	case 5: return false;
+	case 5: goodbyemessage();  return false;
 	default: cout << "Try again! " << endl;
 	}
 

@@ -44,15 +44,13 @@ int enterInt()
 void loginMenu(nanodbc::connection conn, USER& user)
 {
 	string username, pass;
-enter:
-	cout << "Enter your username and password please" << endl;
-	cout << "Username: ";
+	cout << " +__________________________________________+" << endl;
+	cout << "   Enter your username and password please" << endl;
+	cout << "            Username: ";
 	getline(cin, username);
-	cout << "Password: ";
+	cout << "            Password: ";
 	getline(cin, pass);
-
-	/*username = "admin";
-	pass = "adminpass";*/
+	cout << " +__________________________________________+" << endl;
 
 	user = login(conn, username, pass);
 
@@ -103,8 +101,6 @@ int main()
 
 		nanodbc::connection conn(connstr);
 
-		bool queryResult = false;
-		int id;
 		USER currentUser{};
 
 		loginMenu(conn, currentUser);
