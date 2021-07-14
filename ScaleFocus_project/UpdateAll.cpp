@@ -8,10 +8,6 @@
 
 using namespace std;
 
-string enterText();
-
-int enterInt();
-
 void updateUser(nanodbc::connection conn, const int& id)
 {
 	nanodbc::statement statement(conn);

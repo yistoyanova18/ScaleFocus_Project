@@ -31,7 +31,9 @@ void loginMenu(nanodbc::connection conn, USER& user)
 		}
 		else
 		{
-			userMenu(conn, user);
+			if (!userMenu(conn, user)) {
+				return;
+			}
 		}
 	}
 	else
@@ -63,16 +65,19 @@ void getBackToMenu(nanodbc::connection conn)
 {
 	int choice;
 	cout << endl;
-	cout << "Type '0' to return back to the menu\n";
-	cin >> choice;
 
-	if (choice == 0)
-	{
-		system("cls");
-	}
-	else
-	{
-		cout << "Invalid entered value!" << endl;
-		getBackToMenu(conn);
-	}
+	do {
+		cout << "Type '0' to return back to the menu\n";
+		choice = enterInt();
+
+		if (choice == 0)
+		{
+			system("cls");
+			break;
+		}
+		else
+		{
+			cout << "Invalid entered value!" << endl;
+		}
+	} while (true);
 }
