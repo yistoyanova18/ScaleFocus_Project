@@ -3,6 +3,7 @@
 #include <nanodbc.h>
 #include <exception>
 #include <vector>
+#include <conio.h>
 #include "Structures.h"
 #include "Functions.h"
 
@@ -11,12 +12,34 @@ using namespace std;
 void loginMenu(nanodbc::connection conn, USER& user)
 {
 	string username, pass;
+	char ch;
+
 	cout << u8"		       ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
 	cout << u8"                                            ᴸᴼᴳᴵᴺ" << endl;
 	cout << "                                      Username: ";
 	username = enterText();
 	cout << "                                      Password: ";
-	pass = enterText();
+
+	ch = _getch();
+
+	while (ch != 13) 
+	{
+		if (ch == 8) 
+		{
+			if (pass.length() > 0)
+			{
+				cout << "\b \b";
+				pass.pop_back();
+			}
+		}
+		else 
+		{
+			cout << '*';
+			pass += ch;
+		}
+		ch = _getch();
+	}
+
 	cout << u8"		       ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
 
 	user = login(conn, username, pass);
@@ -47,7 +70,6 @@ void loginMenu(nanodbc::connection conn, USER& user)
 string enterText()
 {
 	string text;
-	//getline(cin, text);
 	cin >> text;
 	return text;
 }
@@ -55,7 +77,6 @@ string enterText()
 int enterInt()
 {
 	string num;
-	//getline(cin, num);
 	cin >> num;
 	return stoi(num);
 }
