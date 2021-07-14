@@ -66,6 +66,7 @@ void displayGetAllMenu()
 	cout << "         3) List all projects" << endl;
 	cout << "         4) List all tasks" << endl;
 	cout << "         5) List all work logs" << endl;
+	cout << "         6) Return back to main menu" << endl;
 	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
@@ -469,13 +470,67 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
-void deleteAllMenu(nanodbc::connection conn, USER& user)
+bool deleteAllMenu(nanodbc::connection conn, USER& user)
 {
 	nanodbc::statement statement(conn);
-	cout << "Enter a user's id that you want to delete: " << endl;
-	int id = enterInt();
+	int choice;
+	int id;
 
-	USER::deleteUserById(conn, id);
+	displayDeleteAllMenu();
+
+	cout << "Enter an option from the menu: ";
+	cin >> choice;
+
+	switch (choice)
+	{
+	case 1: {
+		system("cls");
+		cout << "Enter the user's id that you want to delete: ";
+		id = enterInt();
+		cout << endl;
+		USER::deleteUserById(conn, id);
+		break;
+	}
+
+	case 2: {
+		system("cls");
+		cout << "Enter the team's id that you want to delete: ";
+		id = enterInt();
+		cout << endl;
+		TEAM::deleteTeamById(conn, id);
+		break;
+	}
+
+	case 3: {
+		system("cls");
+		cout << "Enter the project's id that you want to delete: ";
+		id = enterInt();
+		cout << endl;
+		PROJECT::deleteProjectById(conn, id);
+		break;
+	}
+
+	case 4: {
+		system("cls");
+		cout << "Enter the task's id that you want to delete: ";
+		id = enterInt();
+		cout << endl;
+		TASK::deleteTaskById(conn, id);
+		break;
+	}
+
+	case 5: {
+		system("cls");
+		cout << "Enter the work log's id that you want to delete: ";
+		id = enterInt();
+		cout << endl;
+		WORKLOG::deleteWorkLogById(conn, id);
+		break;
+	}
+	default: cout << "Try again! " << endl;
+	}
+
+	return true;
 }
 
 //main menus

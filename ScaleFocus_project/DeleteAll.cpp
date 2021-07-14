@@ -19,6 +19,8 @@ void USER::deleteUserById(nanodbc::connection& conn, const int& id)
 
 	statement.bind(0, &id);
 	auto result = execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void TEAM::deleteTeamById(nanodbc::connection& conn, const int& id)
@@ -32,6 +34,8 @@ void TEAM::deleteTeamById(nanodbc::connection& conn, const int& id)
 
 	statement.bind(0, &id);
 	auto result = execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void PROJECT::deleteProjectById(nanodbc::connection& conn, const int& id)
@@ -45,6 +49,8 @@ void PROJECT::deleteProjectById(nanodbc::connection& conn, const int& id)
 
 	statement.bind(0, &id);
 	auto result = execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void TASK::deleteTaskById(nanodbc::connection& conn, const int& id)
@@ -58,6 +64,8 @@ void TASK::deleteTaskById(nanodbc::connection& conn, const int& id)
 
 	statement.bind(0, &id);
 	auto result = execute(statement);
+
+	getBackToMenu(conn);
 }
 
 void WORKLOG::deleteWorkLogById(nanodbc::connection& conn, const int& id)
@@ -71,4 +79,6 @@ void WORKLOG::deleteWorkLogById(nanodbc::connection& conn, const int& id)
 
 	statement.bind(0, &id);
 	auto result = execute(statement);
+
+	getBackToMenu(conn);
 }
