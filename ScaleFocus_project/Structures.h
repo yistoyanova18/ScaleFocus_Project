@@ -32,6 +32,8 @@ struct USER
 		cout << "Id of last change: " << this->idLastChange << endl;
 		cout << "Admin: " << this->isAdmin << endl << endl;
 	}
+
+	static void deleteUserById(nanodbc::connection& conn, const int& id);
 };
 
 struct TEAM
@@ -52,6 +54,8 @@ struct TEAM
 		cout << "Date of last change: " << this->dateOfLastChange << endl;
 		cout << "Id of last change: " << this->idLastChange << endl;
 	}
+
+	static void deleteTeamById(nanodbc::connection& conn, const int& id);
 };
 
 struct PROJECT
@@ -74,6 +78,8 @@ struct PROJECT
 		cout << "Date of last change: " << this->dateOfLastChange << endl;
 		cout << "Id of last change: " << this->idLastChange << endl;
 	}
+
+	static void deleteProjectById(nanodbc::connection& conn, const int& id);
 };
 
 struct TASK
@@ -101,6 +107,8 @@ struct TASK
 		cout << "Date of last change: " << this->dateOfLastChange << endl;
 		cout << "Id of last change: " << this->idLastChange << endl;
 	}
+
+	static void deleteTaskById(nanodbc::connection& conn, const int& id);
 };
 
 struct WORKLOG
@@ -119,4 +127,6 @@ struct WORKLOG
 		cout << "Time: " << this->time << endl;
 		cout << "Date: " << this->date << endl;
 	}
+
+	static void deleteWorkLogById(nanodbc::connection& conn, const int& id);
 };

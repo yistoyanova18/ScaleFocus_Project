@@ -16,6 +16,7 @@ vector<USER> getUser(nanodbc::connection conn)
 	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
         SELECT *
             FROM ScaleFocus_Project.dbo.[User]
+			WHERE IsDeleted != 1
     )"));
 
 	auto result = execute(statement);

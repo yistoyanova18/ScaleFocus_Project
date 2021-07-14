@@ -89,7 +89,18 @@ void displayInsertAllUserMenu()
 	cout << endl;
 	cout << "           1) Insert a project" << endl;
 	cout << "           2) Insert a task" << endl;
-	cout << "           3) Insert a work log" << endl;
+	cout << "           3) Return back to main menu" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+}
+
+void displayInsertLogsInTaskMenu()
+{
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Insert a task" << endl;
+	cout << "           2) Insert a work log" << endl;
+	cout << "           3) Return back to main menu" << endl;
 	cout << " +_________________________________________+" << endl;
 	cout << endl;
 }
@@ -113,8 +124,32 @@ void displayUpdateAllUserMenu()
 	cout << endl;
 	cout << "           1) Update a project" << endl;
 	cout << "           2) Update a task" << endl;
-	cout << "           3) Update a work log" << endl;
+	cout << "           3) Return back to main menu" << endl;
 	cout << " +_________________________________________+" << endl;
+	cout << endl;
+}
+
+void displayUpdateLogsInTaskMenu()
+{
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Update a task" << endl;
+	cout << "           2) Update a work log" << endl;
+	cout << "           3) Return back to main menu" << endl;
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+}
+
+void displayDeleteAllMenu()
+{
+	cout << " +_________________________________________+" << endl;
+	cout << endl;
+	cout << "           1) Delete a user" << endl;
+	cout << "           2) Delete a team" << endl;
+	cout << "           3) Delete a project" << endl;
+	cout << "           4) Delete a task" << endl;
+	cout << "           5) Delete a work log" << endl;
+	cout << " +_________________________________________+" << endl; 
 	cout << endl;
 }
 
@@ -238,13 +273,41 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 
 	case 2: {
 		system("cls");
-		insertTask(conn);
+
+		displayInsertLogsInTaskMenu();
+		cout << "Enter an option from the menu: ";
+		cin >> choice;
+		cout << endl;
+
+		switch (choice)
+		{
+		case 1: {
+			system("cls");
+			insertTask(conn);
+			break;
+		}
+
+		case 2: {
+			system("cls");
+			insertWorkLog(conn);
+			break;
+		}
+
+		case 3: {
+			system("cls");
+			insertAllUserMenu(conn, user);
+			break;
+		}
+
+		default: cout << "Try again! " << endl;
+		}
+
 		break;
 	}
 
 	case 3: {
 		system("cls");
-		insertWorkLog(conn);
+		userMenu(conn, user);
 		break;
 	}
 	default: cout << "Try again! " << endl;
@@ -350,29 +413,54 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 
 	case 2: {
 		system("cls");
-		cout << "Enter the task's id that you want to change: ";
-		id = enterInt();
+
+		displayUpdateLogsInTaskMenu();
+		cout << "Enter an option from the menu: ";
+		cin >> choice;
 		cout << endl;
 
-		TASK task = getTaskById(conn, id);
-		if (user.id == task.idOfCreator)
+		switch (choice)
 		{
+		case 1: {
+			cout << "Enter the task's id that you want to change: ";
+			id = enterInt();
+			cout << endl;
 
-			updateTask(conn, id);
+			TASK task = getTaskById(conn, id);
+			if (user.id == task.idOfCreator)
+			{
+
+				updateTask(conn, id);
+			}
+			else
+			{
+				cout << "Sorry, you can't change a task that you didn't create :(" << endl;
+			}
+			break;
 		}
-		else
-		{
-			cout << "Sorry, you can't change a task that you didn't create :(" << endl;
+
+		case 2: {
+			cout << "Enter the work log's id that you want to change: ";
+			id = enterInt();
+			cout << endl;
+
+			updateWorkLog(conn, id);
+			break;
 		}
-		break;
+
+		case 3: {
+			system("cls");
+			updateAllUserMenu(conn, user);
+			break;
+		}
+		default: cout << "Try again! " << endl;
+		}
+
 	}
 
 	case 3: {
 		system("cls");
-		cout << "Enter the work log's id that you want to change: ";
-		id = enterInt();
-		cout << endl;
-		updateWorkLog(conn, id);
+		userMenu(conn, user);
 		break;
 	}
 	default: cout << "Try again! " << endl;
@@ -381,9 +469,13 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
-void deleteAllMenu(nanodbc::connection conn)
+void deleteAllMenu(nanodbc::connection conn, USER& user)
 {
-	cout << "We are very sorry but this functionality is currently unavailable! :(" << endl;
+	nanodbc::statement statement(conn);
+	cout << "Enter a user's id that you want to delete: " << endl;
+	int id = enterInt();
+
+	USER::deleteUserById(conn, id);
 }
 
 //main menus
@@ -421,7 +513,7 @@ bool adminMenu(nanodbc::connection conn, USER& user)
 
 	case 4: {
 		system("cls");
-		deleteAllMenu(conn);
+		deleteAllMenu(conn,user);
 		adminMenu(conn, user);
 		break;
 	}
@@ -467,7 +559,7 @@ bool userMenu(nanodbc::connection conn, USER& user)
 
 	case 4: {
 		system("cls");
-		deleteAllMenu(conn);
+		//deleteAllMenu(conn,user);
 		userMenu(conn, user);
 		break;
 	}
