@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <nanodbc.h>
 #include <exception>
@@ -47,7 +47,9 @@ void getAllUsers(nanodbc::connection conn)
 
 	for (size_t i = 0; i < users.size(); i++)
 	{
+		cout << u8"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" << endl;
 		users[i].displayUser();
+		cout << u8"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" << endl;
 	}
 
 	getBackToMenu(conn);
@@ -87,8 +89,9 @@ void getAllTeams(nanodbc::connection conn)
 
 	for (size_t i = 0; i < teams.size(); i++)
 	{
+		cout << u8"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" << endl;
 		teams[i].displayTeam();
-		cout << endl;
+		cout << u8"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" << endl;
 	}
 
 	getBackToMenu(conn);
@@ -129,8 +132,9 @@ void getAllProjects(nanodbc::connection conn)
 
 	for (size_t i = 0; i < projects.size(); i++)
 	{
+		cout << u8"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" << endl;
 		projects[i].displayProject();
-		cout << endl;
+		cout << u8"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" << endl;
 	}
 
 	getBackToMenu(conn);
@@ -174,8 +178,9 @@ void getAllTasks(nanodbc::connection conn)
 
 	for (size_t i = 0; i < tasks.size(); i++)
 	{
+		cout << u8"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" << endl;
 		tasks[i].displayTask();
-		cout << endl;
+		cout << u8"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" << endl;
 	}
 
 	getBackToMenu(conn);
@@ -214,8 +219,9 @@ void getAllWorkLogs(nanodbc::connection conn)
 
 	for (size_t i = 0; i < workLogs.size(); i++)
 	{
+		cout << u8"┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓" << endl;
 		workLogs[i].displayWorkLog();
-		cout << endl;
+		cout << u8"┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛" << endl;
 	}
 
 	getBackToMenu(conn);

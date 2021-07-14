@@ -40,7 +40,9 @@ void loginMenu(nanodbc::connection conn, USER& user)
 		ch = _getch();
 	}
 
+	cout << endl;
 	cout << u8"		       ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
+
 
 	user = login(conn, username, pass);
 

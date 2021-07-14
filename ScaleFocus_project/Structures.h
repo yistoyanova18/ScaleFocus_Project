@@ -21,15 +21,15 @@ struct USER
 
 	void displayUser()
 	{
-		cout << "User id: " << this->id << endl;
-		cout << "Username: " << this->username << endl;
-		cout << "First name: " << this->firstName << endl;
-		cout << "Last name: " << this->lastName << endl;
-		cout << "Date of creation: " << this->dateOfCreation << endl;
-		cout << "Id of creator: " << this->idOfCreator << endl;
-		cout << "Date of last change: " << this->dateOfLastChange << endl;
-		cout << "Id of last change: " << this->idLastChange << endl;
-		cout << "Admin: " << this->isAdmin << endl << endl;
+		cout << "    User id: " << this->id << endl;
+		cout << "    Username: " << this->username << endl;
+		cout << "    First name: " << this->firstName << endl;
+		cout << "    Last name: " << this->lastName << endl;
+		cout << "    Date of creation: " << this->dateOfCreation << endl;
+		cout << "    Id of creator: " << this->idOfCreator << endl;
+		cout << "    Date of last change: " << this->dateOfLastChange << endl;
+		cout << "    Id of last change: " << this->idLastChange << endl;
+		cout << "    Admin: " << this->isAdmin << endl << endl;
 	}
 
 	static void deleteUserById(nanodbc::connection& conn, const int& id);
@@ -69,13 +69,13 @@ struct PROJECT
 
 	void displayProject()
 	{
-		cout << "Team id: " << this->id << endl;
-		cout << "Title: " << this->title << endl;
-		cout << "Description: " << this->description << endl;
-		cout << "Date of creation: " << this->dateOfCreation << endl;
-		cout << "Id of creator: " << this->idOfCreator << endl;
-		cout << "Date of last change: " << this->dateOfLastChange << endl;
-		cout << "Id of last change: " << this->idLastChange << endl;
+		cout << "    Team id: " << this->id << endl;
+		cout << "    Title: " << this->title << endl;
+		cout << "    Description: " << this->description << endl;
+		cout << "    Date of creation: " << this->dateOfCreation << endl;
+		cout << "    Id of creator: " << this->idOfCreator << endl;
+		cout << "    Date of last change: " << this->dateOfLastChange << endl;
+		cout << "    Id of last change: " << this->idLastChange << endl;
 	}
 
 	static void deleteProjectById(nanodbc::connection& conn, const int& id);
@@ -96,15 +96,15 @@ struct TASK
 
 	void displayTask()
 	{
-		cout << "Task id: " << this->id << endl;
-		cout << "Project id: " << this->idOfProject << endl;
-		cout << "Assignee id: " << this->idOfAssignee << endl;
-		cout << "Title: " << this->title << endl;
-		cout << "Description: " << this->description << endl;
-		cout << "Date of creation: " << this->dateOfCreation << endl;
-		cout << "Id of creator: " << this->idOfCreator << endl;
-		cout << "Date of last change: " << this->dateOfLastChange << endl;
-		cout << "Id of last change: " << this->idLastChange << endl;
+		cout << "    Task id: " << this->id << endl;
+		cout << "    Project id: " << this->idOfProject << endl;
+		cout << "    Assignee id: " << this->idOfAssignee << endl;
+		cout << "    Title: " << this->title << endl;
+		cout << "    Description: " << this->description << endl;
+		cout << "    Date of creation: " << this->dateOfCreation << endl;
+		cout << "    Id of creator: " << this->idOfCreator << endl;
+		cout << "    Date of last change: " << this->dateOfLastChange << endl;
+		cout << "    Id of last change: " << this->idLastChange << endl;
 	}
 
 	static void deleteTaskById(nanodbc::connection& conn, const int& id);
@@ -120,11 +120,11 @@ struct WORKLOG
 
 	void displayWorkLog()
 	{
-		cout << "Worklog id: " << this->id << endl;
-		cout << "Task id: " << this->idOfTask << endl;
-		cout << "User id: " << this->idOfUser << endl;
-		cout << "Time: " << this->time << endl;
-		cout << "Date: " << this->date << endl;
+		cout << "    Worklog id: " << this->id << endl;
+		cout << "    Task id: " << this->idOfTask << endl;
+		cout << "    User id: " << this->idOfUser << endl;
+		cout << "    Time: " << this->time << endl;
+		cout << "    Date: " << this->date << endl;
 	}
 
 	static void deleteWorkLogById(nanodbc::connection& conn, const int& id);
