@@ -78,6 +78,9 @@ void getBackToMenu(nanodbc::connection conn)
 
 int main()
 {	
+	system("chcp 65001");
+	system("cls");
+
 	try
 	{
 		nanodbc::string connstr = NANODBC_TEXT("DRIVER={ODBC Driver 17 for SQL Server};Server=UNIVERSE\\SQLEXPRESS;DATABASE=ScaleFocus_Project;Trusted_Connection=yes;"); // an ODBC connection string to your database

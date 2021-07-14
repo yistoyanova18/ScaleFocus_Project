@@ -3,6 +3,8 @@
 #include <nanodbc.h>
 #include <exception>
 #include <vector>
+#include <windows.h>
+#include <conio.h>
 #include "Structures.h"
 #include "Functions.h"
 
@@ -43,17 +45,24 @@ USER login(nanodbc::connection conn, string username, string password)
 }
 
 //display menus
+
+void displayMessage()
+{
+	system("cls");
+	cout <<"		       "<< u8"Welcome to the project management application!" << endl;
+}
+
 void displayMenu()
 {
 	cout << endl;
-	cout << " Welcome to the project management application!" << endl;
+	cout << "			+_________________________________________+" << endl;
 	cout << endl;
-	cout << "             1) List all" << endl;
-	cout << "             2) Insert" << endl;
-	cout << "             3) Update" << endl;
-	cout << "             4) Delete" << endl;
-	cout << "             5) Quit" << endl;
-	cout << " +___________________________________________+" << endl;
+	cout << "					 1) List all" << endl;
+	cout << "					 2) Insert" << endl;
+	cout << "					 3) Update" << endl;
+	cout << "					 4) Delete" << endl;
+	cout << "					 5) Quit" << endl;
+	cout << "			+________________________________________+" << endl;
 	cout << endl;
 }
 
@@ -779,7 +788,7 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 bool adminMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
-
+	displayMessage();
 	displayMenu();
 
 	cout << "Enter an option from the menu: ";
