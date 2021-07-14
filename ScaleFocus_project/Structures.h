@@ -46,12 +46,12 @@ struct TEAM
 
 	void displayTeam()
 	{
-		cout << "Team id: " << this->id << endl;
-		cout << "Title: " << this->title << endl;
-		cout << "Date of creation: " << this->dateOfCreation << endl;
-		cout << "Id of creator: " << this->idOfCreator << endl;
-		cout << "Date of last change: " << this->dateOfLastChange << endl;
-		cout << "Id of last change: " << this->idLastChange << endl;
+		cout << "    Team id: " << this->id << endl;
+		cout << "    Title: " << this->title << endl;
+		cout << "    Date of creation: " << this->dateOfCreation << endl;
+		cout << "    Id of creator: " << this->idOfCreator << endl;
+		cout << "    Date of last change: " << this->dateOfLastChange << endl;
+		cout << "    Id of last change: " << this->idLastChange << endl;
 	}
 
 	static void deleteTeamById(nanodbc::connection& conn, const int& id);

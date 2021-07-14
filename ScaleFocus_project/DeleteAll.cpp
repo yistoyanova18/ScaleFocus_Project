@@ -21,6 +21,7 @@ void USER::deleteUserById(nanodbc::connection& conn, const int& id)
 	auto result = execute(statement);
 
 	cout << "Deleted successfully!" << endl;
+	cout << endl;
 
 	getBackToMenu(conn);
 }
@@ -38,6 +39,7 @@ void TEAM::deleteTeamById(nanodbc::connection& conn, const int& id)
 	auto result = execute(statement);
 
 	cout << "Deleted successfully!" << endl;
+	cout << endl;
 
 	getBackToMenu(conn);
 }
@@ -55,6 +57,7 @@ void PROJECT::deleteProjectById(nanodbc::connection& conn, const int& id)
 	auto result = execute(statement);
 
 	cout << "Deleted successfully!" << endl;
+	cout << endl;
 
 	getBackToMenu(conn);
 }
@@ -72,6 +75,7 @@ void TASK::deleteTaskById(nanodbc::connection& conn, const int& id)
 	auto result = execute(statement);
 
 	cout << "Deleted successfully!" << endl;
+	cout << endl;
 
 	getBackToMenu(conn);
 }
@@ -89,6 +93,7 @@ void WORKLOG::deleteWorkLogById(nanodbc::connection& conn, const int& id)
 	auto result = execute(statement);
 
 	cout << "Deleted successfully!" << endl;
+	cout << endl;
 
 	getBackToMenu(conn);
 }

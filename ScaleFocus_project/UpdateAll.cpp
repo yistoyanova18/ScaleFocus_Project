@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <nanodbc.h>
 #include <exception>
@@ -23,23 +23,23 @@ void updateUser(nanodbc::connection conn, const int& id)
 		WHERE Id = ?;
     )"));
 
-	cout << "Enter the user's new username: ";
+	cout << u8"                ҉ Enter the user's new username: ";
 	const string username = enterText();
 	statement.bind(0, username.c_str());
 
-	cout << "Enter the user's new password: ";
+	cout << u8"                ҉ Enter the user's new password: ";
 	const string password = enterText();
 	statement.bind(1, password.c_str());
 
-	cout << "Enter the user's new first name: ";
+	cout << u8"                ҉ Enter the user's new first name: ";
 	const string firstName = enterText();
 	statement.bind(2, firstName.c_str());
 
-	cout << "Enter the user's new last name: ";
+	cout << u8"                ҉ Enter the user's new last name: ";
 	const string lastName = enterText();
 	statement.bind(3, lastName.c_str());
 
-	cout << "Enter the id of the user that did the last change: ";
+	cout << u8"                ҉ Enter the id of the user that did the last change: ";
 	const int idLastChange = enterInt();
 	statement.bind(4, &idLastChange);
 
@@ -62,11 +62,11 @@ void updateTeam(nanodbc::connection conn, const int& id)
 		WHERE Id = ?;
     )"));
 
-	cout << "Enter the team's new title: ";
+	cout << u8"                ҉ Enter the team's new title: ";
 	const string title = enterText();
 	statement.bind(0, title.c_str());
 
-	cout << "Enter the id of the user that did the last change: ";
+	cout << u8"                ҉ Enter the id of the user that did the last change: ";
 	const int idLastChange = enterInt();
 	statement.bind(1, &idLastChange);
 
@@ -90,15 +90,15 @@ void updateProject(nanodbc::connection conn, const int& id)
 		WHERE Id = ?;
     )"));
 
-	cout << "Enter the project's new title: ";
+	cout << u8"                ҉ Enter the project's new title: ";
 	const string title = enterText();
 	statement.bind(0, title.c_str());
 
-	cout << "Enter the project's new description: ";
+	cout << u8"                ҉ Enter the project's new description: ";
 	const string description = enterText();
 	statement.bind(1, description.c_str());
 
-	cout << "Enter the id of the user that did the last change: ";
+	cout << u8"                ҉ Enter the id of the user that did the last change: ";
 	const int idLastChange = enterInt();
 	statement.bind(2, &idLastChange);
 
@@ -124,23 +124,23 @@ void updateTask(nanodbc::connection conn, const int& id)
 		WHERE Id = ?;
     )"));
 
-	cout << "Enter the new id of the user that this task has been assigned to: ";
+	cout << u8"                ҉ Enter the new id of the user that this task has been assigned to: ";
 	const int idOfAssignee = enterInt();
 	statement.bind(0, &idOfAssignee);
 
-	cout << "Enter the task's new title: ";
+	cout << u8"                ҉ Enter the task's new title: ";
 	const string title = enterText();
 	statement.bind(1, title.c_str());
 
-	cout << "Enter the task's new description: ";
+	cout << u8"                ҉ Enter the task's new description: ";
 	const string description = enterText();
 	statement.bind(2, description.c_str());
 
-	cout << "Enter the task's new status(Pending/ InProgress/ Completed): ";
+	cout << u8"                ҉ Enter the task's new status(Pending/ InProgress/ Completed): ";
 	const string taskStatus = enterText();
 	statement.bind(3, taskStatus.c_str());
 
-	cout << "Enter the id of the user that did the last change: ";
+	cout << u8"                ҉ Enter the id of the user that did the last change: ";
 	const int idLastChange = enterInt();
 	statement.bind(4, &idLastChange);
 
@@ -164,19 +164,19 @@ void updateWorkLog(nanodbc::connection conn, const int& id)
 		WHERE Id = ?;
     )"));
 
-	cout << "Enter the new id of the task that you are logging work for: ";
+	cout << u8"                ҉ Enter the new id of the task that you are logging work for: ";
 	const int idTask = enterInt();
 	statement.bind(0, &idTask);
 
-	cout << "Enter the new id of the user that is logging work: ";
+	cout << u8"                ҉ Enter the new id of the user that is logging work: ";
 	const int idUser = enterInt();
 	statement.bind(1, &idUser);
 
-	cout << "Enter the number of hours spent working on the task for that day: ";
+	cout << u8"                ҉ Enter the number of hours spent working on the task for that day: ";
 	const int time = enterInt();
 	statement.bind(2, &time);
 
-	cout << "Enter the date when the time was spent on the task (year-month-day): ";
+	cout << u8"                ҉ Enter the date when the time was spent on the task (year-month-day): ";
 	const string date = enterText();
 	statement.bind(3, date.c_str());
 

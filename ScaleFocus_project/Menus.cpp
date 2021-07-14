@@ -42,10 +42,12 @@ USER login(nanodbc::connection conn, string username, string password)
 	return user;
 }
 
+//display main menus and messages
 void displayMenu()
 {
 	cout << endl;
 	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << u8"		                        ᴹᴬᴵᴺ ᴹᴱᴺᵁ" << endl;
 	cout << "				       1) List all" << endl;
 	cout << "				       2) Insert" << endl;
 	cout << "				       3) Update" << endl;
@@ -59,21 +61,21 @@ void displayMessage()
 {
 	system("cls");
 	cout << endl;
-	cout <<"	      "<< u8"██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██╗" << endl;
+	cout << YELLOW <<"	      "<< u8"██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██╗" << endl;
 	cout <<"	      "<< u8"██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝██║" << endl;
 	cout <<"	      "<< u8"██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  ██║" << endl;
 	cout <<"	      "<< u8"██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ╚═╝" << endl;
 	cout <<"	      "<< u8"╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗██╗" << endl;
-	cout <<"	      "<< u8" ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝" << endl;
+	cout << "	      " << u8" ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝" << RESET << endl;
 }
 
-void goodbyemessage()
+void goodbyeMessage()
 {
 	cout << endl;
-	cout << "	            " << u8" __                     __                             " << endl;
+	cout << YELLOW << "	            " << u8" __                     __                             " << endl;
 	cout << "	            " << u8"/ _  _  _  _||_    _ | (_  _ _     _       _ _  _  _  | " << endl;
 	cout << "	            " << u8"\\__)(_)(_)(_||_)\\/(- . __)(-(-  \\/(_)|_|  _)(_)(_)| ) . " << endl;
-	cout << "	            " << u8"                /               /                      " << endl;
+	cout << "	            " << u8"                /               /                      " << RESET << endl;
 }
 
 //display admin menus
@@ -220,7 +222,7 @@ bool getAllMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayGetAllMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -260,7 +262,7 @@ bool getAllMenu(nanodbc::connection conn, USER& user)
 		case 6: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -274,7 +276,7 @@ bool insertAllMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayInsertAllMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 		cout << endl;
 
@@ -315,7 +317,7 @@ bool insertAllMenu(nanodbc::connection conn, USER& user)
 		case 6: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -331,7 +333,7 @@ bool updateAllMenu(nanodbc::connection conn, USER& user)
 		displayUpdateAllMenu();
 
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -340,45 +342,55 @@ bool updateAllMenu(nanodbc::connection conn, USER& user)
 		{
 		case 1: {
 			system("cls");
-			cout << "Enter the user's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the user's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
+
 			updateUser(conn, id);
 			break;
 		}
 
 		case 2: {
 			system("cls");
-			cout << "Enter the team's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the team's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
+
 			updateTeam(conn, id);
 			break;
 		}
 
 		case 3: {
 			system("cls");
-			cout << "Enter the project's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the project's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
+
 			updateProject(conn, id);
 			break;
 		}
 
 		case 4: {
 			system("cls");
-			cout << "Enter the task's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the task's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
+
 			updateTask(conn, id);
 			break;
 		}
 
 		case 5: {
 			system("cls");
-			cout << "Enter the work log's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the work log's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
+
 			updateWorkLog(conn, id);
 			break;
 		}
@@ -386,7 +398,7 @@ bool updateAllMenu(nanodbc::connection conn, USER& user)
 		case 6: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -402,7 +414,7 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayDeleteAllMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -411,45 +423,55 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user)
 		{
 		case 1: {
 			system("cls");
-			cout << "Enter the user's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the user's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
+
 			USER::deleteUserById(conn, id);
 			break;
 		}
 
 		case 2: {
 			system("cls");
-			cout << "Enter the team's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the team's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
+
 			TEAM::deleteTeamById(conn, id);
 			break;
 		}
 
 		case 3: {
 			system("cls");
-			cout << "Enter the project's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the project's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
+
 			PROJECT::deleteProjectById(conn, id);
 			break;
 		}
 
 		case 4: {
 			system("cls");
-			cout << "Enter the task's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the task's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
+
 			TASK::deleteTaskById(conn, id);
 			break;
 		}
 
 		case 5: {
 			system("cls");
-			cout << "Enter the work log's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the work log's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
+
 			WORKLOG::deleteWorkLogById(conn, id);
 			break;
 		}
@@ -457,7 +479,7 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user)
 		case 6: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -470,11 +492,9 @@ bool getAllUserMenu(nanodbc::connection conn, USER& user)
 	int choice;
 
 	do {
-		system("cls");
-
 		displayGetAllUserMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -503,9 +523,8 @@ bool getAllUserMenu(nanodbc::connection conn, USER& user)
 			system("cls");
 
 			do {
-				system("cls");
 				displayGetAllWorkLogsFormTasksMenu();
-				cout << "Enter an option from the menu: ";
+				cout << u8"                ҉ Enter an option from the menu: ";
 				choice = enterInt();
 				cout << endl;
 
@@ -529,8 +548,9 @@ bool getAllUserMenu(nanodbc::connection conn, USER& user)
 					return false;
 				}
 
-				default: cout << "Try again! " << endl;
+				default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 				}
+
 			} while (true);
 
 			break;
@@ -539,9 +559,12 @@ bool getAllUserMenu(nanodbc::connection conn, USER& user)
 		case 5: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
+
 	} while (true);
+
 	return true;
 }
 
@@ -550,10 +573,9 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 	int choice;
 
 	do {
-		system("cls");
 		displayInsertAllUserMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 		cout << endl;
 
@@ -569,11 +591,10 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 
 		case 2: {
 			do {
-				system("cls");
 				displayInsertLogsInTaskMenu();
 
-				cout << "Enter an option from the menu: ";
-				cin >> choice;
+				cout << u8"                ҉ Enter an option from the menu: ";
+				choice = enterInt();
 				cout << endl;
 
 				system("cls");
@@ -596,7 +617,7 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 					return false;
 				}
 
-				default: cout << "Try again! " << endl;
+				default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 				}
 			} while (true);
 			break;
@@ -605,7 +626,7 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user)
 		case 3: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -620,7 +641,7 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayUpdateAllUserMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -629,7 +650,8 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 		{
 		case 1: {
 			system("cls");
-			cout << "Enter the project's id that you want to change: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the project's id that you want to change: ";
 			id = enterInt();
 			cout << endl;
 
@@ -644,7 +666,8 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 			}
 			else
 			{
-				cout << "Sorry, you can't change a project that you didn't create :(" << endl;
+				cout << RED << "                Sorry, you can't change a project that you didn't create :(" << RESET << endl;
+				cout << endl;
 			}
 
 			break;
@@ -654,7 +677,7 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 			system("cls");
 			do {
 				displayUpdateLogsInTaskMenu();
-				cout << "Enter an option from the menu: ";
+				cout << u8"                ҉ Enter an option from the menu: ";
 				choice = enterInt();
 				cout << endl;
 
@@ -663,7 +686,8 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 				switch (choice)
 				{
 				case 1: {
-					cout << "Enter the task's id that you want to change: ";
+					cout << endl;
+					cout << u8"                ҉ Enter the task's id that you want to change: ";
 					id = enterInt();
 					cout << endl;
 
@@ -675,13 +699,15 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 					}
 					else
 					{
-						cout << "Sorry, you can't change a task that you didn't create :(" << endl;
+						cout << RED << "                Sorry, you can't change a task that you didn't create :(" << RESET << endl;
+						cout << endl;
 					}
 					break;
 				}
 
 				case 2: {
-					cout << "Enter the work log's id that you want to change: ";
+					cout << endl;
+					cout << u8"                ҉ Enter the work log's id that you want to change: ";
 					id = enterInt();
 					cout << endl;
 
@@ -692,7 +718,7 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 				case 3: {
 					return false;
 				}
-				default: cout << "Try again! " << endl;
+				default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 				}
 			} while (true);
 
@@ -701,7 +727,7 @@ bool updateAllUserMenu(nanodbc::connection conn, USER& user)
 		case 3: {
 			return false;
 		}
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -717,7 +743,7 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayDeleteAllUserMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -726,7 +752,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 		{
 		case 1: {
 			system("cls");
-			cout << "Enter the project's id that you want to delete: ";
+			cout << endl;
+			cout << u8"                ҉ Enter the project's id that you want to delete: ";
 			id = enterInt();
 			cout << endl;
 			PROJECT project = getProjectById(conn, id);
@@ -738,7 +765,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 			}
 			else
 			{
-				cout << "Sorry, you can't delete a project that you didn't create :(" << endl;
+				cout <<RED<< "                Sorry, you can't delete a project that you didn't create :(" <<RESET<< endl;
+				cout << endl;
 			}
 
 			break;
@@ -749,8 +777,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 
 			do {
 				displayDeleteLogsInTaskMenu();
-				cout << "Enter an option from the menu: ";
-				cin >> choice;
+				cout << u8"                ҉ Enter an option from the menu: ";
+				choice = enterInt();
 				cout << endl;
 
 				system("cls");
@@ -758,7 +786,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 				switch (choice)
 				{
 				case 1: {
-					cout << "Enter the task's id that you want to delete: ";
+					cout << endl;
+					cout << u8"                ҉ Enter the task's id that you want to delete: ";
 					id = enterInt();
 					cout << endl;
 
@@ -770,13 +799,15 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 					}
 					else
 					{
-						cout << "Sorry, you can't delete a task that you didn't create :(" << endl;
+						cout <<RED<< "                Sorry, you can't delete a task that you didn't create :(" <<RESET<< endl;
+						cout << endl;
 					}
 					break;
 				}
 
 				case 2: {
-					cout << "Enter the work log's id that you want to delete: ";
+					cout << endl;
+					cout << u8"                ҉ Enter the work log's id that you want to delete: ";
 					id = enterInt();
 					cout << endl;
 
@@ -788,7 +819,7 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 					return false;
 				}
 
-				default: cout << "Try again! " << endl;
+				default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 				}
 			} while (true);
 
@@ -799,7 +830,7 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 			return false;
 		}
 
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                      Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -816,7 +847,7 @@ bool adminMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -847,9 +878,9 @@ bool adminMenu(nanodbc::connection conn, USER& user)
 			break;
 		}
 
-		case 5: goodbyemessage();  return false;
+		case 5: goodbyeMessage();  return false;
 
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                        Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 
@@ -865,7 +896,7 @@ bool userMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayMenu();
 
-		cout << "Enter an option from the menu: ";
+		cout << u8"                ҉ Enter an option from the menu: ";
 		choice = enterInt();
 
 		system("cls");
@@ -893,11 +924,11 @@ bool userMenu(nanodbc::connection conn, USER& user)
 		}
 
 		case 5: {
-			goodbyemessage();
+			goodbyeMessage();
 			return false;
 		};
 
-		default: cout << "Try again! " << endl;
+		default: cout << endl; cout << RED << "                                        Try again! " << RESET << endl; cout << endl;
 		}
 	} while (true);
 

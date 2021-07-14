@@ -22,6 +22,7 @@ void loginMenu(nanodbc::connection conn, USER& user)
 
 	ch = _getch();
 
+	//Displays the user passowrd with * 
 	while (ch != 13) 
 	{
 		if (ch == 8) 
@@ -37,6 +38,7 @@ void loginMenu(nanodbc::connection conn, USER& user)
 			cout << '*';
 			pass += ch;
 		}
+
 		ch = _getch();
 	}
 
@@ -55,15 +57,17 @@ void loginMenu(nanodbc::connection conn, USER& user)
 		}
 		else
 		{
-			if (!userMenu(conn, user)) {
+			if (!userMenu(conn, user)) 
+			{
 				return;
 			}
 		}
 	}
 	else
 	{
+		system("cls");
 		cout << endl;
-		cout << "Incorrect username or password! Try again!" << endl;
+		cout << RED << "                          Incorrect username or password! Try again!" << RESET << endl;
 		cout << endl;
 		loginMenu(conn, user);
 	}
@@ -72,14 +76,15 @@ void loginMenu(nanodbc::connection conn, USER& user)
 string enterText()
 {
 	string text;
-	cin >> text;
+	
+	getline(cin, text);
 	return text;
 }
 
 int enterInt()
 {
 	string num;
-	cin >> num;
+	getline(cin, num);
 	return stoi(num);
 }
 
@@ -89,8 +94,9 @@ void getBackToMenu(nanodbc::connection conn)
 	cout << endl;
 
 	do {
-		cout << "Type '0' to return back to the menu\n";
+		cout << u8"        ҉ Type '0' to return back to the menu: ";
 		choice = enterInt();
+		cout << endl;
 
 		if (choice == 0)
 		{
@@ -99,7 +105,8 @@ void getBackToMenu(nanodbc::connection conn)
 		}
 		else
 		{
-			cout << "Invalid entered value!" << endl;
+			cout << RED << "                 Invalid entered value!" << RESET << endl;
+			cout << endl;
 		}
 	} while (true);
 }

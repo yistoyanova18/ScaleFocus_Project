@@ -8,6 +8,16 @@
 
 using namespace std;
 
+//colors
+#define RESET   "\033[0m"
+#define RED     "\033[1;91m" 
+#define GREEN   "\033[1;92m" 
+#define YELLOW  "\033[1;93m"  
+#define BLUE    "\033[1;96m"
+#define PURPLE  "\033[1;95m"
+#define WHITE   "\[\033[0;37m\]"
+#define CYAN    "\[\033[0;36m\]"
+
 //list all
 void getAllUsers(nanodbc::connection conn);
 void getAllTeams(nanodbc::connection conn);
@@ -30,6 +40,7 @@ void updateTask(nanodbc::connection conn, const int& id);
 void updateWorkLog(nanodbc::connection conn, const int& id);
 
 USER login(nanodbc::connection conn, string username, string pass);
+
 //display
 void displayMenu();
 void displayGetAllMenu();
@@ -37,6 +48,7 @@ void displayInsertAllMenu();
 void displayInsertAllUserMenu();
 void displayUpdateAllMenu();
 void displayUpdateAllUserMenu();
+
 //function menus
 bool getAllMenu(nanodbc::connection conn, USER& user);
 bool insertAllMenu(nanodbc::connection conn, USER& user);
@@ -44,6 +56,7 @@ bool insertAllUserMenu(nanodbc::connection conn, USER& user);
 bool updateAllMenu(nanodbc::connection conn, USER& user);
 bool updateAllUserMenu(nanodbc::connection conn, USER& user);
 bool deleteAllMenu(nanodbc::connection conn, USER& user);
+
 //main menus
 bool adminMenu(nanodbc::connection conn, USER& user);
 bool userMenu(nanodbc::connection conn, USER& user);

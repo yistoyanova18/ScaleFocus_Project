@@ -63,6 +63,7 @@ vector<TEAM> getTeam(nanodbc::connection conn)
 	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
         SELECT *
             FROM ScaleFocus_Project.dbo.[Team]
+			WHERE IsDeleted != 1
     )"));
 
 	auto result = execute(statement);
@@ -105,6 +106,7 @@ vector<PROJECT> getProject(nanodbc::connection conn)
 	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
         SELECT *
             FROM ScaleFocus_Project.dbo.[Project]
+			WHERE IsDeleted != 1
     )"));
 
 	auto result = execute(statement);
@@ -148,6 +150,7 @@ vector<TASK> getTask(nanodbc::connection conn)
 	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
         SELECT *
             FROM ScaleFocus_Project.dbo.[Task]
+			WHERE IsDeleted != 1
     )"));
 
 	auto result = execute(statement);
@@ -194,6 +197,7 @@ vector<WORKLOG> getWorkLog(nanodbc::connection conn)
 	nanodbc::prepare(statement, NANODBC_TEXT(R"( 
         SELECT *
             FROM ScaleFocus_Project.dbo.[WorkLog]
+			WHERE IsDeleted != 1
     )"));
 
 	auto result = execute(statement);
