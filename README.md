@@ -1,4 +1,4 @@
-<h2 align="center"> Project Management system </h2>
+<h2 align="center"> Project Management System </h2>
 <h6 align="center"> A ScaleFocus Project </h6>
 
 <h3>More about the project: </h3>
