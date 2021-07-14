@@ -68,148 +68,147 @@ void displayMenu()
 
 void displayGetAllMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "         1) List all users" << endl;
-	cout << "         2) List all teams" << endl;
-	cout << "         3) List all projects" << endl;
-	cout << "         4) List all tasks" << endl;
-	cout << "         5) List all work logs" << endl;
-	cout << "         6) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) List all users" << endl;
+	cout << "					 2) List all teams" << endl;
+	cout << "					 3) List all projects" << endl;
+	cout << "					 4) List all tasks" << endl;
+	cout << "					 5) List all work logs" << endl;
+	cout << "					 6) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayGetAllUserMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "         1) List all users" << endl;
-	cout << "         2) List all teams" << endl;
-	cout << "         3) List all projects" << endl;
-	cout << "         4) List all tasks" << endl;
-	cout << "         5) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) List all users" << endl;
+	cout << "					 2) List all teams" << endl;
+	cout << "					 3) List all projects" << endl;
+	cout << "					 4) List all tasks" << endl;
+	cout << "					 5) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayGetAllWorkLogsFormTasksMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "         1) List all tasks" << endl;
-	cout << "         2) List all work logs" << endl;
-	cout << "         3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) List all tasks" << endl;
+	cout << "					 2) List all work logs" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayInsertAllMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Insert a user" << endl;
-	cout << "           2) Insert a team" << endl;
-	cout << "           3) Insert a project" << endl;
-	cout << "           4) Insert a task" << endl;
-	cout << "           5) Insert a work log" << endl;
-	cout << "           6) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Insert a user" << endl;
+	cout << "					 2) Insert a team" << endl;
+	cout << "					 3) Insert a project" << endl;
+	cout << "					 4) Insert a task" << endl;
+	cout << "					 5) Insert a work log" << endl;
+	cout << "					 6) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayInsertAllUserMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Insert a project" << endl;
-	cout << "           2) Insert a task" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Insert a project" << endl;
+	cout << "					 2) Insert a task" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayInsertLogsInTaskMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Insert a task" << endl;
-	cout << "           2) Insert a work log" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Insert a task" << endl;
+	cout << "					 2) Insert a work log" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayUpdateAllMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Update a user" << endl;
-	cout << "           2) Update a team" << endl;
-	cout << "           3) Update a project" << endl;
-	cout << "           4) Update a task" << endl;
-	cout << "           5) Update a work log" << endl;
-	cout << "           6) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Update a user" << endl;
+	cout << "					 2) Update a team" << endl;
+	cout << "					 3) Update a project" << endl;
+	cout << "					 4) Update a task" << endl;
+	cout << "					 5) Update a work log" << endl;
+	cout << "					 6) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayUpdateAllUserMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Update a project" << endl;
-	cout << "           2) Update a task" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Update a project" << endl;
+	cout << "					 2) Update a task" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayUpdateLogsInTaskMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Update a task" << endl;
-	cout << "           2) Update a work log" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Update a task" << endl;
+	cout << "					 2) Update a work log" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayDeleteAllMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Delete a user" << endl;
-	cout << "           2) Delete a team" << endl;
-	cout << "           3) Delete a project" << endl;
-	cout << "           4) Delete a task" << endl;
-	cout << "           5) Delete a work log" << endl;
-	cout << "           6) Return back to main menu" << endl;
-
-	cout << " +_________________________________________+" << endl; 
+	cout << "					 1) Delete a user" << endl;
+	cout << "					 2) Delete a team" << endl;
+	cout << "					 3) Delete a project" << endl;
+	cout << "					 4) Delete a task" << endl;
+	cout << "					 5) Delete a work log" << endl;
+	cout << "					 6) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl; 
 	cout << endl;
 }
 
 void displayDeleteAllUserMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Delete a project" << endl;
-	cout << "           2) Delete a task" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Delete a project" << endl;
+	cout << "					 2) Delete a task" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 
 void displayDeleteLogsInTaskMenu()
 {
-	cout << " +_________________________________________+" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
-	cout << "           1) Delete a task" << endl;
-	cout << "           2) Delete a work log" << endl;
-	cout << "           3) Return back to main menu" << endl;
-	cout << " +_________________________________________+" << endl;
+	cout << "					 1) Delete a task" << endl;
+	cout << "					 2) Delete a work log" << endl;
+	cout << "					 3) Return back to main menu" << endl;
+	cout << "			 +_________________________________________+" << endl;
 	cout << endl;
 }
 

@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="DeleteAll.cpp" />
     <ClCompile Include="GetForUser.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="Menus.cpp" />
     <ClCompile Include="GetAll.cpp" />
     <ClCompile Include="InsertAll.cpp" />

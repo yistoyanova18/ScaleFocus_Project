@@ -48,7 +48,12 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user);
 bool adminMenu(nanodbc::connection conn, USER& user);
 bool userMenu(nanodbc::connection conn, USER& user);
 
+//login
+void loginMenu(nanodbc::connection conn, USER& user);
+
 void getBackToMenu(nanodbc::connection conn);
+string enterText();
+int enterInt();
 
 PROJECT getProjectById(nanodbc::connection conn, int id);
 TASK getTaskById(nanodbc::connection conn, int id);
