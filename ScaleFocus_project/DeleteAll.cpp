@@ -20,7 +20,7 @@ void USER::deleteUserById(nanodbc::connection& conn, const int& id)
 	statement.bind(0, &id);
 	auto result = execute(statement);
 
-	cout << "Deleted successfully!" << endl;
+	cout <<GREEN<< "                               Deleted successfully!" << RESET<<endl;
 	cout << endl;
 
 	getBackToMenu(conn);
@@ -38,7 +38,7 @@ void TEAM::deleteTeamById(nanodbc::connection& conn, const int& id)
 	statement.bind(0, &id);
 	auto result = execute(statement);
 
-	cout << "Deleted successfully!" << endl;
+	cout << GREEN << "                               Deleted successfully!" << RESET << endl;
 	cout << endl;
 
 	getBackToMenu(conn);
@@ -56,7 +56,7 @@ void PROJECT::deleteProjectById(nanodbc::connection& conn, const int& id)
 	statement.bind(0, &id);
 	auto result = execute(statement);
 
-	cout << "Deleted successfully!" << endl;
+	cout << GREEN << "                               Deleted successfully!" << RESET << endl;
 	cout << endl;
 
 	getBackToMenu(conn);
@@ -74,7 +74,7 @@ void TASK::deleteTaskById(nanodbc::connection& conn, const int& id)
 	statement.bind(0, &id);
 	auto result = execute(statement);
 
-	cout << "Deleted successfully!" << endl;
+	cout << GREEN << "                               Deleted successfully!" << RESET << endl;
 	cout << endl;
 
 	getBackToMenu(conn);
@@ -92,7 +92,7 @@ void WORKLOG::deleteWorkLogById(nanodbc::connection& conn, const int& id)
 	statement.bind(0, &id);
 	auto result = execute(statement);
 
-	cout << "Deleted successfully!" << endl;
+	cout << GREEN << "                               Deleted successfully!" << RESET << endl;
 	cout << endl;
 
 	getBackToMenu(conn);
