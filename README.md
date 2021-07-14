@@ -3,7 +3,7 @@
 
 <h3>More about the project: </h3>
 
-> The project management system manages the operations of an IT company. It brings visibility to an organization of multiple teams, working on multitle projects.
+> The project management system manages the operations of an IT company. It brings visibility to an organization of multiple teams, working on multiple projects.
 
 ### <img src="https://cdn.icon-icons.com/icons2/567/PNG/512/clouddown_icon-icons.com_54405.png" width="30">  Installation
 
