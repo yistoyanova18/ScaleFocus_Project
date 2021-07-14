@@ -23,7 +23,6 @@ struct USER
 	{
 		cout << "User id: " << this->id << endl;
 		cout << "Username: " << this->username << endl;
-		cout << "Password: " << this->password << endl;
 		cout << "First name: " << this->firstName << endl;
 		cout << "Last name: " << this->lastName << endl;
 		cout << "Date of creation: " << this->dateOfCreation << endl;

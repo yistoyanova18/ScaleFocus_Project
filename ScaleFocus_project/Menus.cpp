@@ -42,180 +42,177 @@ USER login(nanodbc::connection conn, string username, string password)
 	return user;
 }
 
-//display menus
-void displayMessage()
-{
-	system("cls");
-	cout <<"		       "<< u8"𝐖𝐞𝐥𝐜𝐨𝐦𝐞 𝐭𝐨 𝐭𝐡𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐦𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧!" << endl;
-}
-
 void displayMenu()
 {
 	cout << endl;
-	cout << "			+_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) List all" << endl;
-	cout << "					 2) Insert" << endl;
-	cout << "					 3) Update" << endl;
-	cout << "					 4) Delete" << endl;
-	cout << "					 5) Quit" << endl;
-	cout << "			+________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayGetAllMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) List all users" << endl;
-	cout << "					 2) List all teams" << endl;
-	cout << "					 3) List all projects" << endl;
-	cout << "					 4) List all tasks" << endl;
-	cout << "					 5) List all work logs" << endl;
-	cout << "					 6) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
+	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << "				       1) List all" << endl;
+	cout << "				       2) Insert" << endl;
+	cout << "				       3) Update" << endl;
+	cout << "				       4) Delete" << endl;
+	cout << "				       5) Quit" << endl;
+	cout << u8"		     ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
 	cout << endl;
 }
 
-void displayGetAllUserMenu()
+void displayMessage()
 {
-	cout << "			 +_________________________________________+" << endl;
+	system("cls");
 	cout << endl;
-	cout << "					 1) List all users" << endl;
-	cout << "					 2) List all teams" << endl;
-	cout << "					 3) List all projects" << endl;
-	cout << "					 4) List all tasks" << endl;
-	cout << "					 5) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayGetAllWorkLogsFormTasksMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) List all tasks" << endl;
-	cout << "					 2) List all work logs" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayInsertAllMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Insert a user" << endl;
-	cout << "					 2) Insert a team" << endl;
-	cout << "					 3) Insert a project" << endl;
-	cout << "					 4) Insert a task" << endl;
-	cout << "					 5) Insert a work log" << endl;
-	cout << "					 6) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayInsertAllUserMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Insert a project" << endl;
-	cout << "					 2) Insert a task" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayInsertLogsInTaskMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Insert a task" << endl;
-	cout << "					 2) Insert a work log" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayUpdateAllMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Update a user" << endl;
-	cout << "					 2) Update a team" << endl;
-	cout << "					 3) Update a project" << endl;
-	cout << "					 4) Update a task" << endl;
-	cout << "					 5) Update a work log" << endl;
-	cout << "					 6) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayUpdateAllUserMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Update a project" << endl;
-	cout << "					 2) Update a task" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayUpdateLogsInTaskMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Update a task" << endl;
-	cout << "					 2) Update a work log" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayDeleteAllMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Delete a user" << endl;
-	cout << "					 2) Delete a team" << endl;
-	cout << "					 3) Delete a project" << endl;
-	cout << "					 4) Delete a task" << endl;
-	cout << "					 5) Delete a work log" << endl;
-	cout << "					 6) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl; 
-	cout << endl;
-}
-
-void displayDeleteAllUserMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Delete a project" << endl;
-	cout << "					 2) Delete a task" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-}
-
-void displayDeleteLogsInTaskMenu()
-{
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
-	cout << "					 1) Delete a task" << endl;
-	cout << "					 2) Delete a work log" << endl;
-	cout << "					 3) Return back to main menu" << endl;
-	cout << "			 +_________________________________________+" << endl;
-	cout << endl;
+	cout <<"	      "<< u8"██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗██╗" << endl;
+	cout <<"	      "<< u8"██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝██║" << endl;
+	cout <<"	      "<< u8"██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  ██║" << endl;
+	cout <<"	      "<< u8"██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  ╚═╝" << endl;
+	cout <<"	      "<< u8"╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗██╗" << endl;
+	cout <<"	      "<< u8" ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝" << endl;
 }
 
 void goodbyemessage()
 {
 	cout << endl;
-	cout << "Goodbye! See you soon!" << endl;
+	cout << "	            " << u8" __                     __                             " << endl;
+	cout << "	            " << u8"/ _  _  _  _||_    _ | (_  _ _     _       _ _  _  _  | " << endl;
+	cout << "	            " << u8"\\__)(_)(_)(_||_)\\/(- . __)(-(-  \\/(_)|_|  _)(_)(_)| ) . " << endl;
+	cout << "	            " << u8"                /               /                      " << endl;
 }
 
-//function menus
+//display admin menus
+void displayGetAllMenu()
+{
+	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << "		                  1) List all users" << endl;
+	cout << "		                  2) List all teams" << endl;
+	cout << "		                  3) List all projects" << endl;
+	cout << "		                  4) List all tasks" << endl;
+	cout << "		                  5) List all work logs" << endl;
+	cout << "		                  6) Return back to main menu" << endl;
+	cout << u8"		     ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
+	cout << endl;
+}
+
+void displayInsertAllMenu()
+{
+	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << "		       	         1) Insert a user" << endl;
+	cout << "		       	         2) Insert a team" << endl;
+	cout << "		       	         3) Insert a project" << endl;
+	cout << "		       	         4) Insert a task" << endl;
+	cout << "		       	         5) Insert a work log" << endl;
+	cout << "		       	         6) Return back to main menu" << endl;
+	cout << u8"		     ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
+	cout << endl;
+}
+
+void displayUpdateAllMenu()
+{
+	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << "	                        1) Update a user" << endl;
+	cout << "	                        2) Update a team" << endl;
+	cout << "	                        3) Update a project" << endl;
+	cout << "	                        4) Update a task" << endl;
+	cout << "	                        5) Update a work log" << endl;
+	cout << "	                        6) Return back to main menu" << endl;
+	cout << u8"		     ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
+	cout << endl;
+}
+
+void displayDeleteAllMenu()
+{
+	cout << u8"		     ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << "	                       1) Delete a user" << endl;
+	cout << "	                       2) Delete a team" << endl;
+	cout << "	                       3) Delete a project" << endl;
+	cout << "	                       4) Delete a task" << endl;
+	cout << "	                       5) Delete a work log" << endl;
+	cout << "	                       6) Return back to main menu" << endl;
+	cout << u8"		     ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
+	cout << endl;
+}
+
+//display user menu
+void displayGetAllUserMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) List all users" << endl;
+	cout << "		              2) List all teams" << endl;
+	cout << "		              3) List all projects" << endl;
+	cout << "		              4) List all tasks" << endl;
+	cout << "		              5) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayGetAllWorkLogsFormTasksMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) List all tasks" << endl;
+	cout << "		              2) List all work logs" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayInsertAllUserMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Insert a project" << endl;
+	cout << "		              2) Insert a task" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayInsertLogsInTaskMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Insert a task" << endl;
+	cout << "		              2) Insert a work log" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayUpdateLogsInTaskMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Update a task" << endl;
+	cout << "		              2) Update a work log" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayUpdateAllUserMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Update a project" << endl;
+	cout << "		              2) Update a task" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayDeleteAllUserMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Delete a project" << endl;
+	cout << "		              2) Delete a task" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+void displayDeleteLogsInTaskMenu()
+{
+	cout << u8"		     ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮" << endl;
+	cout << "		              1) Delete a task" << endl;
+	cout << "		              2) Delete a work log" << endl;
+	cout << "		              3) Return back to main menu" << endl;
+	cout << u8"		     ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯" << endl;
+	cout << endl;
+}
+
+//function admin menus
 bool getAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
@@ -225,6 +222,8 @@ bool getAllMenu(nanodbc::connection conn, USER& user)
 
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
+		system("cls");
 
 		switch (choice)
 		{
@@ -268,81 +267,6 @@ bool getAllMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
-bool getAllUserMenu(nanodbc::connection conn, USER& user)
-{
-	int choice;
-
-	do {
-		system("cls");
-
-		displayGetAllUserMenu();
-
-		cout << "Enter an option from the menu: ";
-		choice = enterInt();
-
-		switch (choice)
-		{
-		case 1: {
-			system("cls");
-			getAllUsers(conn);
-			break;
-		}
-
-		case 2: {
-			system("cls");
-			getAllTeams(conn);
-			break;
-		}
-
-		case 3: {
-			system("cls");
-			getAllProjects(conn);
-			break;
-		}
-
-		case 4: {
-			system("cls");
-
-			displayGetAllWorkLogsFormTasksMenu();
-			cout << "Enter an option from the menu: ";
-			choice = enterInt();
-			cout << endl;
-
-			switch (choice)
-			{
-			case 1: {
-				system("cls");
-				getAllTasks(conn);
-				break;
-			}
-
-			case 2: {
-				system("cls");
-				getAllWorkLogs(conn);
-				break;
-			}
-
-			case 3: {
-				system("cls");
-				getAllUserMenu(conn, user);
-				break;
-			}
-
-			default: cout << "Try again! " << endl;
-			}
-
-			break;
-		}
-
-		case 5: {
-			return false;
-		}
-		default: cout << "Try again! " << endl;
-		}
-	} while (true);
-	return true;
-}
-
 bool insertAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
@@ -353,6 +277,8 @@ bool insertAllMenu(nanodbc::connection conn, USER& user)
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
 		cout << endl;
+
+		system("cls");
 
 		switch (choice)
 		{
@@ -396,69 +322,6 @@ bool insertAllMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
-bool insertAllUserMenu(nanodbc::connection conn, USER& user)
-{
-	int choice;
-
-	do {
-		displayInsertAllUserMenu();
-
-		cout << "Enter an option from the menu: ";
-		choice = enterInt();
-		cout << endl;
-
-		switch (choice)
-		{
-		case 1: {
-			system("cls");
-			insertProject(conn);
-			break;
-		}
-
-		case 2: {
-			system("cls");
-
-			displayInsertLogsInTaskMenu();
-			cout << "Enter an option from the menu: ";
-			cin >> choice;
-			cout << endl;
-
-			switch (choice)
-			{
-			case 1: {
-				system("cls");
-				insertTask(conn);
-				break;
-			}
-
-			case 2: {
-				system("cls");
-				insertWorkLog(conn);
-				break;
-			}
-
-			case 3: {
-				system("cls");
-				insertAllUserMenu(conn, user);
-				break;
-			}
-
-			default: cout << "Try again! " << endl;
-			}
-
-			break;
-		}
-
-		case 3: {
-			return false;
-		}
-		default: cout << "Try again! " << endl;
-		}
-	} while (true);
-
-	return true;
-}
-
 bool updateAllMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
@@ -467,8 +330,11 @@ bool updateAllMenu(nanodbc::connection conn, USER& user)
 	do {
 		displayUpdateAllMenu();
 
+
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
+		system("cls");
 
 		switch (choice)
 		{
@@ -527,96 +393,6 @@ bool updateAllMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
-bool updateAllUserMenu(nanodbc::connection conn, USER& user)
-{
-	int choice;
-	int id;
-
-	do {
-		displayUpdateAllUserMenu();
-
-		cout << "Enter an option from the menu: ";
-		choice = enterInt();
-
-		switch (choice)
-		{
-		case 1: {
-			system("cls");
-			cout << "Enter the project's id that you want to change: ";
-			id = enterInt();
-			cout << endl;
-
-			PROJECT project = getProjectById(conn, id);
-
-			if (user.id == project.idOfCreator)
-			{
-
-				updateProject(conn, id);
-			}
-			else
-			{
-				cout << "Sorry, you can't change a project that you didn't create :(" << endl;
-			}
-
-			break;
-		}
-
-		case 2: {
-			system("cls");
-			do {
-				displayUpdateLogsInTaskMenu();
-				cout << "Enter an option from the menu: ";
-				choice = enterInt();
-				cout << endl;
-
-				switch (choice)
-				{
-				case 1: {
-					cout << "Enter the task's id that you want to change: ";
-					id = enterInt();
-					cout << endl;
-
-					TASK task = getTaskById(conn, id);
-					if (user.id == task.idOfCreator)
-					{
-
-						updateTask(conn, id);
-					}
-					else
-					{
-						cout << "Sorry, you can't change a task that you didn't create :(" << endl;
-					}
-					break;
-				}
-
-				case 2: {
-					cout << "Enter the work log's id that you want to change: ";
-					id = enterInt();
-					cout << endl;
-
-					updateWorkLog(conn, id);
-					break;
-				}
-
-				case 3: {
-					return false;
-				}
-				default: cout << "Try again! " << endl;
-				}
-			} while (true);
-
-		}
-
-		case 3: {
-			return false;
-		}
-		default: cout << "Try again! " << endl;
-		}
-	} while (true);
-
-	return true;
-}
-
 bool deleteAllMenu(nanodbc::connection conn, USER& user)
 {
 	nanodbc::statement statement(conn);
@@ -628,6 +404,8 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user)
 
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
+		system("cls");
 
 		switch (choice)
 		{
@@ -686,6 +464,250 @@ bool deleteAllMenu(nanodbc::connection conn, USER& user)
 	return true;
 }
 
+//function user menus
+bool getAllUserMenu(nanodbc::connection conn, USER& user)
+{
+	int choice;
+
+	do {
+		system("cls");
+
+		displayGetAllUserMenu();
+
+		cout << "Enter an option from the menu: ";
+		choice = enterInt();
+
+		system("cls");
+
+		switch (choice)
+		{
+		case 1: {
+			system("cls");
+			getAllUsers(conn);
+			break;
+		}
+
+		case 2: {
+			system("cls");
+			getAllTeams(conn);
+			break;
+		}
+
+		case 3: {
+			system("cls");
+			getAllProjects(conn);
+			break;
+		}
+
+		case 4: {
+			system("cls");
+
+			do {
+				system("cls");
+				displayGetAllWorkLogsFormTasksMenu();
+				cout << "Enter an option from the menu: ";
+				choice = enterInt();
+				cout << endl;
+
+				system("cls");
+
+				switch (choice)
+				{
+				case 1: {
+					system("cls");
+					getAllTasks(conn);
+					break;
+				}
+
+				case 2: {
+					system("cls");
+					getAllWorkLogs(conn);
+					break;
+				}
+
+				case 3: {
+					return false;
+				}
+
+				default: cout << "Try again! " << endl;
+				}
+			} while (true);
+
+			break;
+		}
+
+		case 5: {
+			return false;
+		}
+		default: cout << "Try again! " << endl;
+		}
+	} while (true);
+	return true;
+}
+
+bool insertAllUserMenu(nanodbc::connection conn, USER& user)
+{
+	int choice;
+
+	do {
+		system("cls");
+		displayInsertAllUserMenu();
+
+		cout << "Enter an option from the menu: ";
+		choice = enterInt();
+		cout << endl;
+
+		system("cls");
+
+		switch (choice)
+		{
+		case 1: {
+			system("cls");
+			insertProject(conn);
+			break;
+		}
+
+		case 2: {
+			do {
+				system("cls");
+				displayInsertLogsInTaskMenu();
+
+				cout << "Enter an option from the menu: ";
+				cin >> choice;
+				cout << endl;
+
+				system("cls");
+
+				switch (choice)
+				{
+				case 1: {
+					system("cls");
+					insertTask(conn);
+					break;
+				}
+
+				case 2: {
+					system("cls");
+					insertWorkLog(conn);
+					break;
+				}
+
+				case 3: {
+					return false;
+				}
+
+				default: cout << "Try again! " << endl;
+				}
+			} while (true);
+			break;
+		}
+
+		case 3: {
+			return false;
+		}
+		default: cout << "Try again! " << endl;
+		}
+	} while (true);
+
+	return true;
+}
+
+bool updateAllUserMenu(nanodbc::connection conn, USER& user)
+{
+	int choice;
+	int id;
+
+	do {
+		displayUpdateAllUserMenu();
+
+		cout << "Enter an option from the menu: ";
+		choice = enterInt();
+
+		system("cls");
+
+		switch (choice)
+		{
+		case 1: {
+			system("cls");
+			cout << "Enter the project's id that you want to change: ";
+			id = enterInt();
+			cout << endl;
+
+			system("cls");
+
+			PROJECT project = getProjectById(conn, id);
+
+			if (user.id == project.idOfCreator)
+			{
+
+				updateProject(conn, id);
+			}
+			else
+			{
+				cout << "Sorry, you can't change a project that you didn't create :(" << endl;
+			}
+
+			break;
+		}
+
+		case 2: {
+			system("cls");
+			do {
+				displayUpdateLogsInTaskMenu();
+				cout << "Enter an option from the menu: ";
+				choice = enterInt();
+				cout << endl;
+
+				system("cls");
+
+				switch (choice)
+				{
+				case 1: {
+					cout << "Enter the task's id that you want to change: ";
+					id = enterInt();
+					cout << endl;
+
+					TASK task = getTaskById(conn, id);
+					if (user.id == task.idOfCreator)
+					{
+
+						updateTask(conn, id);
+					}
+					else
+					{
+						cout << "Sorry, you can't change a task that you didn't create :(" << endl;
+					}
+					break;
+				}
+
+				case 2: {
+					cout << "Enter the work log's id that you want to change: ";
+					id = enterInt();
+					cout << endl;
+
+					updateWorkLog(conn, id);
+					break;
+				}
+
+				case 3: {
+					return false;
+				}
+				default: cout << "Try again! " << endl;
+				}
+			} while (true);
+
+		}
+
+		case 3: {
+			return false;
+		}
+		default: cout << "Try again! " << endl;
+		}
+	} while (true);
+
+	return true;
+}
+
 bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 {
 	nanodbc::statement statement(conn);
@@ -697,6 +719,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
+		system("cls");
 
 		switch (choice)
 		{
@@ -728,6 +752,8 @@ bool deleteAllUserMenu(nanodbc::connection conn, USER& user)
 				cout << "Enter an option from the menu: ";
 				cin >> choice;
 				cout << endl;
+
+				system("cls");
 
 				switch (choice)
 				{
@@ -785,41 +811,39 @@ bool adminMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
-	do {
-		system("cls");
 		displayMessage();
+
+	do {
 		displayMenu();
 
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
+		system("cls");
 
 		switch (choice)
 		{
 		case 1: {
 			system("cls");
 			getAllMenu(conn, user);
-			//adminMenu(conn, user);
 			break;
 		}
 
 		case 2: {
 			system("cls");
 			insertAllMenu(conn, user);
-			//adminMenu(conn, user);
 			break;
 		}
 
 		case 3: {
 			system("cls");
 			updateAllMenu(conn, user);
-			//adminMenu(conn, user);
 			break;
 		}
 
 		case 4: {
 			system("cls");
 			deleteAllMenu(conn, user);
-			//adminMenu(conn, user);
 			break;
 		}
 
@@ -836,12 +860,14 @@ bool userMenu(nanodbc::connection conn, USER& user)
 {
 	int choice;
 
+	displayMessage();
+
 	do {
-		system("cls");
 		displayMenu();
 
 		cout << "Enter an option from the menu: ";
 		choice = enterInt();
+
 		system("cls");
 
 		switch (choice)

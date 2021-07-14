@@ -136,7 +136,7 @@ void updateTask(nanodbc::connection conn, const int& id)
 	const string description = enterText();
 	statement.bind(2, description.c_str());
 
-	cout << "Enter the task's new status: ";
+	cout << "Enter the task's new status(Pending/ InProgress/ Completed): ";
 	const string taskStatus = enterText();
 	statement.bind(3, taskStatus.c_str());
 

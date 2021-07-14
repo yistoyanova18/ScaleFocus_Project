@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 #include <nanodbc.h>
 #include <exception>
@@ -11,14 +11,13 @@ using namespace std;
 void loginMenu(nanodbc::connection conn, USER& user)
 {
 	string username, pass;
-	cout << " +__________________________________________+" << endl;
-	cout << "                    LOGIN" << endl;
-	cout << endl;
-	cout << "            Username: ";
+	cout << u8"		       ╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮" << endl;
+	cout << u8"                                            ᴸᴼᴳᴵᴺ" << endl;
+	cout << "                                      Username: ";
 	username = enterText();
-	cout << "            Password: ";
+	cout << "                                      Password: ";
 	pass = enterText();
-	cout << " +__________________________________________+" << endl;
+	cout << u8"		       ╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯" << endl;
 
 	user = login(conn, username, pass);
 
